@@ -11,6 +11,8 @@ android {
     defaultConfig {
         applicationId "com.example.hilt_testing_experimentation"
         minSdkVersion 16
+        multiDexEnabled true
+
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -70,8 +72,11 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:4.3.1"
     implementation "io.reactivex.rxjava3:rxkotlin:3.0.0"
 
-    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "androidx.recyclerview:recyclerview:1.2.0-alpha02"
     implementation "androidx.cardview:cardview:1.0.0"
+
+    implementation 'androidx.palette:palette:1.0.0'
+
 
 
     debugImplementation "com.github.chuckerteam.chucker:library:3.2.0"
