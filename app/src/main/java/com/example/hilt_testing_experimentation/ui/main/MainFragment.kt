@@ -5,13 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.MergeAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hilt_testing_experimentation.databinding.MainFragmentBinding
+import com.example.hilt_testing_experimentation.ui.main.adapters.LoadingAdapter
+import com.example.hilt_testing_experimentation.ui.main.adapters.PokemonAdapter
 import com.example.hilt_testing_experimentation.utils.Status
 import com.example.hilt_testing_experimentation.utils.visibleIf
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,7 +24,9 @@ class MainFragment : Fragment() {
 
     private var _binding: MainFragmentBinding? = null
 
-    private val adapter = PokemonAdapter()
+    lateinit var pokemonAdapter: PokemonAdapter
+    lateinit var loadingAdapter: LoadingAdapter
+    lateinit var mergeAdapter: MergeAdapter
 
     private val binding
         get() = _binding!!
@@ -46,6 +49,13 @@ class MainFragment : Fragment() {
 
         setupRecycler()
 
+        viewModel.nextPageOffset.observe(viewLifecycleOwner, { nextPage ->
+            loadingAdapter.nextPageOffset = nextPage
+            if (nextPage == null) {
+                loadingAdapter.notifyItemRemoved(0)
+            }
+        })
+
         viewModel.pokemon.observe(viewLifecycleOwner, { response ->
             binding.recyclerMain visibleIf response.isSuccess()
             binding.text visibleIf !response.isSuccess()
@@ -53,7 +63,7 @@ class MainFragment : Fragment() {
 
             when (response.status) {
                 Status.SUCCESS -> {
-                    adapter.updateItems(response.data ?: emptyList())
+                    pokemonAdapter.updateItems(response.data ?: emptyList())
                 }
                 Status.ERROR -> {
                     binding.text.text = "An error occurred, try again later"
@@ -66,10 +76,27 @@ class MainFragment : Fragment() {
         })
     }
     private fun setupRecycler() {
+        pokemonAdapter = PokemonAdapter()
+        loadingAdapter = LoadingAdapter(object: LoadingAdapter.VisibilityListener {
+            override fun isVisible(nextPage: Int) {
+                viewModel.loadMorePokemon(nextPage)
+            }
+        })
+        mergeAdapter = MergeAdapter(pokemonAdapter, loadingAdapter)
+
         with(binding.recyclerMain) {
-            adapter = this@MainFragment.adapter
+            adapter = mergeAdapter
             setHasFixedSize(true)
-            layoutManager = GridLayoutManager(requireContext(), 2, RecyclerView.VERTICAL, false)
+            layoutManager = GridLayoutManager(requireContext(), 2, RecyclerView.VERTICAL, false).apply {
+                spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                    override fun getSpanSize(position: Int): Int {
+                        return if (adapter?.getItemViewType(position) == mergeAdapter.adapters.size - 1) // is last item view type in the mergeadapter
+                            2
+                        else
+                            1
+                    }
+                }
+            }
         }
     }
 

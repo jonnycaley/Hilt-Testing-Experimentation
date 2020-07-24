@@ -4,36 +4,41 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.hilt_testing_experimentation.data.PokeApiService
 import com.example.hilt_testing_experimentation.data.model.detailedpokemon.DetailedPokemonDto
 import com.example.hilt_testing_experimentation.di.schedulers.Schedulers
-import com.example.hilt_testing_experimentation.usecase.GetPokemon
 import com.example.hilt_testing_experimentation.utils.Resource
+import com.example.hilt_testing_experimentation.utils.getOffsetFromUrl
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo
 
 class MainViewModel @ViewModelInject constructor(
-    private val getPokemon: GetPokemon,
+    private val pokeService: PokeApiService,
     private val schedulers: Schedulers
 ) : ViewModel() {
 
-    private var nextPage: String? = null
+    private val pokemonList = mutableListOf<DetailedPokemonDto>()
 
     private val _pokemon: MutableLiveData<Resource<List<DetailedPokemonDto>>> = MutableLiveData(Resource.loading())
     val pokemon: LiveData<Resource<List<DetailedPokemonDto>>>
         get() = _pokemon
 
+    private val _nextPageOffset: MutableLiveData<Int?> = MutableLiveData(0)
+    val nextPageOffset: LiveData<Int?>
+        get() = _nextPageOffset
+
     private var disposable = CompositeDisposable()
 
     init {
+        _pokemon.value = Resource.loading()
         loadPokemon()
     }
 
-    fun loadPokemon() {
-        _pokemon.value = Resource.loading()
-
-        val pokemonList = mutableListOf<DetailedPokemonDto>()
-
-        getPokemon()
+    fun loadPokemon(offset: Int = 0) {
+        pokeService.getPokemon(offset)
+            .doOnSuccess { _nextPageOffset.postValue(it.next?.getOffsetFromUrl()) }
+            .flattenAsObservable { it.results }
+            .flatMap { pokeService.getDetailedPokemon(it.name).toObservable() }
             .subscribeOn(schedulers.io)
             .observeOn(schedulers.mainThread)
             .subscribe({ pokemon ->
@@ -46,5 +51,9 @@ class MainViewModel @ViewModelInject constructor(
 
     private fun setError(throwable: Throwable) {
         _pokemon.value = Resource.error(throwable.message ?: "")
+    }
+
+    fun loadMorePokemon(offset: Int) {
+        loadPokemon(offset)
     }
 }

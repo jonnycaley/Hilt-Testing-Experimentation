@@ -9,3 +9,11 @@ infix fun View.visibleIf(condition: Boolean) {
         this.visibility = View.GONE
     }
 }
+
+fun String.getOffsetFromUrl(): Int? {
+    return try {
+        this.substring(this.lastIndexOf("offset=") + 7, this.indexOf("&limit")).toInt()
+    } catch (thr: Throwable) {
+        null
+    }
+}
