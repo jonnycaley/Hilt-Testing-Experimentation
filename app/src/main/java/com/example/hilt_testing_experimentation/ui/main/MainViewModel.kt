@@ -1,49 +1,50 @@
 package com.example.hilt_testing_experimentation.ui.main
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.hilt_testing_experimentation.data.YahooFinanceService
-import com.example.hilt_testing_experimentation.data.model.MarketSummaryDto
+import com.example.hilt_testing_experimentation.data.model.detailedpokemon.DetailedPokemonDto
 import com.example.hilt_testing_experimentation.di.schedulers.Schedulers
+import com.example.hilt_testing_experimentation.usecase.GetPokemon
 import com.example.hilt_testing_experimentation.utils.Resource
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo
-import javax.inject.Inject
 
-class MainViewModel @Inject constructor(
-    private val yahooService: YahooFinanceService,
+class MainViewModel @ViewModelInject constructor(
+    private val getPokemon: GetPokemon,
     private val schedulers: Schedulers
 ) : ViewModel() {
 
-    private val _summary: MutableLiveData<Resource<MarketSummaryDto>> = MutableLiveData(Resource.loading())
-    val summary: LiveData<Resource<MarketSummaryDto>>
-        get() = _summary
+    private var nextPage: String? = null
+
+    private val _pokemon: MutableLiveData<Resource<List<DetailedPokemonDto>>> = MutableLiveData(Resource.loading())
+    val pokemon: LiveData<Resource<List<DetailedPokemonDto>>>
+        get() = _pokemon
 
     private var disposable = CompositeDisposable()
 
     init {
-        getSummary()
+        loadPokemon()
     }
 
-    private fun getSummary() {
-        _summary.value = Resource.loading()
-        yahooService.getSummary()
+    fun loadPokemon() {
+        _pokemon.value = Resource.loading()
+
+        val pokemonList = mutableListOf<DetailedPokemonDto>()
+
+        getPokemon()
             .subscribeOn(schedulers.io)
             .observeOn(schedulers.mainThread)
-            .subscribe(::setSummary, ::setError)
+            .subscribe({ pokemon ->
+                pokemonList.add(pokemon)
+            },::setError,{
+                _pokemon.value = Resource.success(pokemonList)
+            })
             .addTo(disposable)
     }
 
-    private fun setSummary(summary: MarketSummaryDto) {
-        _summary.value = Resource.success(summary)
-    }
-
     private fun setError(throwable: Throwable) {
-        _summary.value = Resource.error(throwable.message ?: "")
-    }
-
-    fun retry() {
-        getSummary()
+        _pokemon.value = Resource.error(throwable.message ?: "")
     }
 }

@@ -1,7 +1,7 @@
 package com.example.hilt_testing_experimentation
 
 import android.app.Application
-import com.example.hilt_testing_experimentation.data.YahooFinanceService
+import com.example.hilt_testing_experimentation.data.PokeApiService
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
@@ -9,5 +9,5 @@ import javax.inject.Inject
 class Application : Application() {
 
     @Inject
-    lateinit var service: YahooFinanceService
+    lateinit var service: PokeApiService
 }
