@@ -1,4 +1,4 @@
-package com.example.hilt_testing_experimentation.data.model.detailedpokemon
+package com.example.hilt_testing_experimentation.data.model.detailedpokemondto
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
@@ -46,19 +46,19 @@ class DetailedPokemonDto {
 
     @SerializedName("species")
     @Expose
-    var species: Species? = null
+    var speciesDto: SpeciesDto? = null
 
     @SerializedName("sprites")
     @Expose
-    var sprites: Sprites? = null
+    var spritesDto: SpritesDto? = null
 
     @SerializedName("stats")
     @Expose
-    var stats: List<Stat>? = null
+    var statDtos: List<StatDto>? = null
 
     @SerializedName("types")
     @Expose
-    var types: List<Type>? = null
+    var typeDtos: List<TypeDto>? = null
 
     @SerializedName("weight")
     @Expose

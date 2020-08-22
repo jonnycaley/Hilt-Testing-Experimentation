@@ -1,16 +1,16 @@
 
-package com.example.hilt_testing_experimentation.data.model.detailedpokemon;
+package com.example.hilt_testing_experimentation.data.model.detailedpokemondto;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Type {
+public class TypeDto {
 
     @SerializedName("slot")
     @Expose
     public Integer slot;
     @SerializedName("type")
     @Expose
-    public Type_ type;
+    public TypeDto_ type;
 
 }

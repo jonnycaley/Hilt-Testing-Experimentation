@@ -1,4 +1,4 @@
-package com.example.hilt_testing_experimentation.data.model.pokemonlist
+package com.example.hilt_testing_experimentation.data.model.pokemonlistdto
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

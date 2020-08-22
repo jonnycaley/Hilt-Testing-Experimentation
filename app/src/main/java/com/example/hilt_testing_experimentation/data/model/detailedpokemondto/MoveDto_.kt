@@ -1,10 +1,10 @@
-package com.example.hilt_testing_experimentation.data.model.detailedpokemon
+package com.example.hilt_testing_experimentation.data.model.detailedpokemondto
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-class VersionDto : Serializable {
+class MoveDto_ : Serializable {
     @SerializedName("name")
     @Expose
     var name: String? = null

@@ -1,10 +1,10 @@
 
-package com.example.hilt_testing_experimentation.data.model.detailedpokemon;
+package com.example.hilt_testing_experimentation.data.model.detailedpokemondto;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Stat {
+public class StatDto {
 
     @SerializedName("base_stat")
     @Expose
@@ -14,6 +14,6 @@ public class Stat {
     public Integer effort;
     @SerializedName("stat")
     @Expose
-    public Stat_ stat;
+    public StatDto_ stat;
 
 }
