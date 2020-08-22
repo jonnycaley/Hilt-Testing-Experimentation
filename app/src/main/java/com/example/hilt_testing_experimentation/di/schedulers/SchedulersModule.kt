@@ -12,8 +12,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 object SchedulersModule {
 
     @Provides
-    fun provideSchedulers(): com.example.hilt_testing_experimentation.di.schedulers.Schedulers {
-        return Schedulers(
+    fun provideSchedulers(): AppSchedulers {
+        return AppSchedulers(
             Schedulers.io(),
             Schedulers.computation(),
             AndroidSchedulers.mainThread()
