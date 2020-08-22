@@ -49,14 +49,14 @@ class MainFragment : Fragment() {
 
         setupRecycler()
 
-        viewModel.nextPageOffset.observe(viewLifecycleOwner, { nextPage ->
+        viewModel.nextPageOffset.observe(viewLifecycleOwner) { nextPage ->
             loadingAdapter.nextPageOffset = nextPage
             if (nextPage == null) {
                 loadingAdapter.notifyItemRemoved(0)
             }
-        })
+        }
 
-        viewModel.pokemon.observe(viewLifecycleOwner, { response ->
+        viewModel.pokemon.observe(viewLifecycleOwner) { response ->
             binding.recyclerMain visibleIf response.isSuccess()
             binding.text visibleIf !response.isSuccess()
             binding.text.setOnClickListener {}
@@ -73,7 +73,7 @@ class MainFragment : Fragment() {
                     binding.text.text = "Loading..."
                 }
             }
-        })
+        }
     }
     private fun setupRecycler() {
         pokemonAdapter = PokemonAdapter()
