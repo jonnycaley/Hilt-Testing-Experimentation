@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.example.hilt_testing_experimentation.data.model.detailedpokemon.DetailedPokemonDto
+import com.example.hilt_testing_experimentation.data.model.detailedpokemondto.DetailedPokemonDto
 import com.example.hilt_testing_experimentation.databinding.ItemPokemonBinding
+import com.example.hilt_testing_experimentation.domain.detailedpokemon.DetailedPokemon
 
-class PokemonAdapter(private val pokemon: MutableList<DetailedPokemonDto> = mutableListOf()) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
+class PokemonAdapter(private val pokemon: MutableList<DetailedPokemon> = mutableListOf()) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
-    fun updateItems(list: List<DetailedPokemonDto>) {
+    fun updateItems(list: List<DetailedPokemon>) {
         pokemon.clear()
         pokemon.addAll(list)
         notifyDataSetChanged()
@@ -20,9 +20,7 @@ class PokemonAdapter(private val pokemon: MutableList<DetailedPokemonDto> = muta
         val itemBinding = ItemPokemonBinding.inflate(
             LayoutInflater.from(parent.context), parent, false)
 
-        return ViewHolder(
-            itemBinding
-        )
+        return ViewHolder(itemBinding)
     }
 
     override fun getItemCount(): Int {
@@ -34,12 +32,11 @@ class PokemonAdapter(private val pokemon: MutableList<DetailedPokemonDto> = muta
     }
 
     class ViewHolder(private val binding: ItemPokemonBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(pokemon: DetailedPokemonDto) {
+        fun bind(pokemon: DetailedPokemon) {
             binding.name.text = pokemon.name
             Glide
                 .with(binding.root.context)
                 .load(pokemon.sprites?.frontDefault)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(binding.image)
         }
     }
