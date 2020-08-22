@@ -1,7 +1,7 @@
 package com.example.hilt_testing_experimentation.data
 
-import com.example.hilt_testing_experimentation.data.model.detailedpokemon.DetailedPokemonDto
-import com.example.hilt_testing_experimentation.data.model.pokemonlist.PokemonListDto
+import com.example.hilt_testing_experimentation.data.model.detailedpokemondto.DetailedPokemonDto
+import com.example.hilt_testing_experimentation.data.model.pokemonlistdto.PokemonListDto
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
