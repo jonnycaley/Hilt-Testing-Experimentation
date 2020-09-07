@@ -24,6 +24,18 @@ allprojects {
     }
 }
 
+
+/**
+ * The command gradlew clean executes the clean task for every project in the build.
+ *
+ * Both the Android plugin and the Java plugin already provide a clean task, that deletes
+ * the build director.
+ *
+ * For the root project no such plugin is applied, that is why the task is added manually
+ *
+ * This is useful for when you modify some config files such as settings.gradle which require
+ * a complete clean
+ */
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
