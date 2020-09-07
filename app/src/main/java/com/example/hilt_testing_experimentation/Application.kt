@@ -1,13 +1,7 @@
 package com.example.hilt_testing_experimentation
 
 import android.app.Application
-import com.example.hilt_testing_experimentation.data.PokeApiService
-import dagger.hilt.android.HiltAndroidApp
-import javax.inject.Inject
 
-@HiltAndroidApp
-class Application : Application() {
-
-    @Inject
-    lateinit var service: PokeApiService
+open class Application : Application() {
+    // potential @Inject issue here (see https://github.com/google/dagger/issues/2033#issuecomment-671504986 for context)
 }
