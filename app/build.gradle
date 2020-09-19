@@ -17,7 +17,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "com.example.hilt_testing_experimentation.CustomTestRunner.kt"
+        testInstrumentationRunner "com.example.hilt_testing_experimentation.CustomTestRunner"
     }
 
     buildTypes {
@@ -90,4 +90,9 @@ dependencies {
 
     testImplementation 'org.mockito:mockito-core:3.4.4'
     testImplementation "androidx.arch.core:core-testing:2.1.0"
+
+    def fragment_version = "1.2.5"
+    debugImplementation("androidx.fragment:fragment-testing:$fragment_version") {
+        exclude group: 'androidx.test', module: 'monitor' //fixes issue https://github.com/android/android-test/issues/731
+    }
 }
