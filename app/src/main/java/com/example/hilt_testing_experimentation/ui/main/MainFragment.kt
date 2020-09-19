@@ -11,11 +11,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.MergeAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hilt_testing_experimentation.databinding.MainFragmentBinding
+import com.example.hilt_testing_experimentation.di.analytics.Analytics
 import com.example.hilt_testing_experimentation.ui.main.adapters.LoadingAdapter
 import com.example.hilt_testing_experimentation.ui.main.adapters.PokemonAdapter
 import com.example.hilt_testing_experimentation.utils.Status
 import com.example.hilt_testing_experimentation.utils.visibleIf
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
@@ -27,6 +29,9 @@ class MainFragment : Fragment() {
     lateinit var pokemonAdapter: PokemonAdapter
     lateinit var loadingAdapter: LoadingAdapter
     lateinit var mergeAdapter: MergeAdapter
+
+    @Inject
+    lateinit var analytics: Analytics
 
     private val binding
         get() = _binding!!
@@ -48,6 +53,8 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         setupRecycler()
+
+        analytics.logScreenView("Main fragment")
 
         viewModel.nextPageOffset.observe(viewLifecycleOwner) { nextPage ->
             loadingAdapter.nextPageOffset = nextPage
