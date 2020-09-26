@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -71,15 +72,13 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:1.2.5"
     implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
 
-    implementation "com.squareup.okhttp3:logging-interceptor:4.3.1"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.8.1"
     implementation "io.reactivex.rxjava3:rxkotlin:3.0.0"
 
     implementation "androidx.recyclerview:recyclerview:1.2.0-alpha02"
     implementation "androidx.cardview:cardview:1.0.0"
 
     implementation 'androidx.palette:palette:1.0.0'
-
-
 
     debugImplementation "com.github.chuckerteam.chucker:library:3.2.0"
     releaseImplementation "com.github.chuckerteam.chucker:library-no-op:3.2.0"
@@ -95,4 +94,7 @@ dependencies {
     debugImplementation("androidx.fragment:fragment-testing:$fragment_version") {
         exclude group: 'androidx.test', module: 'monitor' //fixes issue https://github.com/android/android-test/issues/731
     }
+
+    implementation 'com.google.firebase:firebase-analytics:17.5.0'
+    implementation 'com.google.firebase:firebase-analytics:17.5.0'
 }
