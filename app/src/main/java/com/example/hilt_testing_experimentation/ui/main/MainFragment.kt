@@ -1,56 +1,40 @@
 package com.example.hilt_testing_experimentation.ui.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.MergeAdapter
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hilt_testing_experimentation.R
 import com.example.hilt_testing_experimentation.databinding.MainFragmentBinding
 import com.example.hilt_testing_experimentation.di.analytics.Analytics
 import com.example.hilt_testing_experimentation.ui.main.adapters.LoadingAdapter
 import com.example.hilt_testing_experimentation.ui.main.adapters.PokemonAdapter
 import com.example.hilt_testing_experimentation.utils.Status
+import com.example.hilt_testing_experimentation.utils.viewBinding
 import com.example.hilt_testing_experimentation.utils.visibleIf
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainFragment : Fragment() {
+class MainFragment : Fragment(R.layout.main_fragment) {
 
     private val viewModel: MainViewModel by viewModels()
 
-    private var _binding: MainFragmentBinding? = null
+    private val binding by viewBinding(MainFragmentBinding::bind)
 
-    lateinit var pokemonAdapter: PokemonAdapter
-    lateinit var loadingAdapter: LoadingAdapter
-    lateinit var mergeAdapter: MergeAdapter
+    private lateinit var pokemonAdapter: PokemonAdapter
+    private lateinit var loadingAdapter: LoadingAdapter
+    private lateinit var concatAdapter: ConcatAdapter
 
     @Inject
     lateinit var analytics: Analytics
 
-    private val binding
-        get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = MainFragmentBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         setupRecycler()
 
@@ -82,6 +66,7 @@ class MainFragment : Fragment() {
             }
         }
     }
+
     private fun setupRecycler() {
         pokemonAdapter = PokemonAdapter()
         loadingAdapter = LoadingAdapter(object: LoadingAdapter.VisibilityListener {
@@ -89,15 +74,15 @@ class MainFragment : Fragment() {
                 viewModel.loadMorePokemon(nextPage)
             }
         })
-        mergeAdapter = MergeAdapter(pokemonAdapter, loadingAdapter)
+        concatAdapter = ConcatAdapter(pokemonAdapter, loadingAdapter)
 
         with(binding.recyclerMain) {
-            adapter = mergeAdapter
+            adapter = concatAdapter
             setHasFixedSize(true)
             layoutManager = GridLayoutManager(requireContext(), 2, RecyclerView.VERTICAL, false).apply {
                 spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                     override fun getSpanSize(position: Int): Int {
-                        return if (adapter?.getItemViewType(position) == mergeAdapter.adapters.size - 1) // is last item view type in the mergeadapter
+                        return if (adapter?.getItemViewType(position) == concatAdapter.adapters.size - 1) // is last item view type in the mergeadapter
                             2
                         else
                             1

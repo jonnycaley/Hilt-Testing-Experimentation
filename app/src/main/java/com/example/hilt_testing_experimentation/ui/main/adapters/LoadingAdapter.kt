@@ -16,7 +16,7 @@ class LoadingAdapter(private val listener: VisibilityListener) : RecyclerView.Ad
         return ViewHolder(viewHolder)
     }
 
-    override fun getItemCount(): Int = nextPageOffset?.let { 1 } ?: run { 0 }
+    override fun getItemCount(): Int = nextPageOffset?.let { 1 } ?: 0
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         nextPageOffset?.let {
