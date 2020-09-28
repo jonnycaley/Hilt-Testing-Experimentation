@@ -12,4 +12,10 @@ class MainFragmentRobot {
             .check(matches(isDisplayed()))
         return this
     }
+
+    fun checkLoadingDisplayed(): MainFragmentRobot {
+        onView(withText("Loading..."))
+            .check(matches(isDisplayed()))
+        return this
+    }
 }

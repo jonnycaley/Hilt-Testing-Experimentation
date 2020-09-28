@@ -31,6 +31,16 @@ class MainFragmentTest {
     }
 
     @Test
+    fun givenDataLoading_whenStartFragment_thenLoadingShown() {
+        fakePokeRepository.addGetPokemonListResponse(Single.never())
+
+        launchFragmentInHiltContainer<MainFragment>()
+
+        MainFragmentRobot()
+            .checkLoadingDisplayed()
+    }
+
+    @Test
     fun givenError_whenStartFragment_thenErrorTextShown() {
         fakePokeRepository.addGetPokemonListResponse(Single.error(Exception("An exception occurred")))
 
