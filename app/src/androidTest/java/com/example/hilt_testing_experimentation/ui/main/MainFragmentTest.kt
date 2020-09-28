@@ -8,6 +8,7 @@ import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
+import io.reactivex.rxjava3.core.Single
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -19,8 +20,10 @@ class MainFragmentTest {
     @get:Rule
     val rule = HiltAndroidRule(this)
 
+    private val fakePokeRepository: FakePokeRepository = FakePokeRepository()
+
     @BindValue @JvmField
-    val pokeRepository: PokeRepository = FakePokeRepository()
+    val pokeRepository: PokeRepository = fakePokeRepository
 
     @Before
     fun before() {
@@ -28,10 +31,13 @@ class MainFragmentTest {
     }
 
     @Test
-    fun test() {
-        launchFragmentInHiltContainer<MainFragment> {
+    fun givenError_whenStartFragment_thenErrorTextShown() {
+        fakePokeRepository.addGetPokemonListResponse(Single.error(Exception("An exception occurred")))
 
-        }
+        launchFragmentInHiltContainer<MainFragment>()
+
+        MainFragmentRobot()
+            .checkErrorDisplayed()
     }
 
 }
