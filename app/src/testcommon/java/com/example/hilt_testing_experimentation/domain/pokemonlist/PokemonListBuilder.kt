@@ -1,4 +1,4 @@
-package com.example.hilt_testing_experimentation.domain.pokemonlist
+import com.example.hilt_testing_experimentation.domain.pokemonlist.PokemonList
 
 object PokemonListBuilder {
     fun build(): PokemonList {

@@ -50,4 +50,14 @@ class MainFragmentTest {
             .checkErrorDisplayed()
     }
 
+    @Test
+    fun givenDataLoaded_whenStartFragment_thenLoadingHiddenAndDataShown() {
+        fakePokeRepository.addGetPokemonListResponse(Single.just(PokemonListBuilder.build()))
+
+        launchFragmentInHiltContainer<MainFragment>()
+
+        MainFragmentRobot()
+            .checkErrorDisplayed()
+    }
+
 }

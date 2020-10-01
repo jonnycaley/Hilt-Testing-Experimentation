@@ -1,4 +1,4 @@
-package com.example.hilt_testing_experimentation.domain.pokemonlist
+import com.example.hilt_testing_experimentation.domain.pokemonlist.Pokemon
 
 object PokemonBuilder {
     var pikachu = Pokemon(
