@@ -59,7 +59,7 @@ class MainFragmentTest {
 
         fakePokeRepository.addGetPokemonListResponse(Single.just(pokemonListResponse))
 
-        pokemonListResponse.results.map { it.name }.forEach { name ->
+        pokemonListResponse.pokemon.map { it.name }.forEach { name ->
             fakePokeRepository.addGetDetailedPokemonResponse(name, Single.just(DetailedPokemonBuilder.build(name)))
         }
 

@@ -4,7 +4,7 @@ object PokemonListBuilder {
     fun build(): PokemonList {
         return PokemonList(
             next = "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20",
-            results = (0..20).map {
+            pokemon = (0..20).map {
                 PokemonBuilder.buildPokemon(it)
             }
         )
