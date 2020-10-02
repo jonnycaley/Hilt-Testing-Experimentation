@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.hilt_testing_experimentation.R
 import com.example.hilt_testing_experimentation.databinding.ItemPokemonBinding
 import com.example.hilt_testing_experimentation.domain.detailedpokemon.DetailedPokemon
 
@@ -36,6 +37,7 @@ class PokemonAdapter(private val pokemon: MutableList<DetailedPokemon> = mutable
             Glide
                 .with(binding.root.context)
                 .load(pokemon.sprites?.frontDefault)
+                .error(R.drawable.placeholder)
                 .into(binding.image)
         }
     }
