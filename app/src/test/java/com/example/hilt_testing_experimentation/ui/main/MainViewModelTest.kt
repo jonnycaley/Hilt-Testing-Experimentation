@@ -3,6 +3,7 @@ package com.example.hilt_testing_experimentation.ui.main
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.hilt_testing_experimentation.domain.PokeRepository
 import com.example.hilt_testing_experimentation.domain.detailedpokemon.DetailedPokemonBuilder
+import com.example.hilt_testing_experimentation.domain.pokemonlist.PokemonListBuilder
 import com.example.hilt_testing_experimentation.utils.TestSchedulers
 import io.reactivex.rxjava3.core.Single
 import org.junit.Rule

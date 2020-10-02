@@ -1,13 +1,11 @@
-import com.example.hilt_testing_experimentation.domain.pokemonlist.Pokemon
+package com.example.hilt_testing_experimentation.domain.pokemonlist
 
 object PokemonBuilder {
-    var pikachu = Pokemon(
-        name = "Pikachu",
-        url = "www.pikachu.com"
-    )
 
-    var raichu = Pokemon(
-        name = "Raichu",
-        url = "www.raichu.com"
-    )
+    fun buildPokemon(index: Int): Pokemon {
+        return Pokemon(
+            name = "pokemon-name-$index",
+            url = "pokemon-url-$index"
+        )
+    }
 }

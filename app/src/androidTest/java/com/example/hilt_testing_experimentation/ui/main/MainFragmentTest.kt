@@ -3,6 +3,9 @@ package com.example.hilt_testing_experimentation.ui.main
 import com.example.hilt_testing_experimentation.domain.FakePokeRepository
 import com.example.hilt_testing_experimentation.domain.PokeRepository
 import com.example.hilt_testing_experimentation.domain.PokeRepositoryModule
+import com.example.hilt_testing_experimentation.domain.detailedpokemon.DetailedPokemonBuilder
+import com.example.hilt_testing_experimentation.domain.pokemonlist.PokemonListBuilder
+import com.example.hilt_testing_experimentation.domain.pokemonlist.withNoNextPage
 import com.example.hilt_testing_experimentation.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -52,7 +55,13 @@ class MainFragmentTest {
 
     @Test
     fun givenDataLoaded_whenStartFragment_thenLoadingHiddenAndDataShown() {
-        fakePokeRepository.addGetPokemonListResponse(Single.just(PokemonListBuilder.build()))
+        val pokemonListResponse = PokemonListBuilder.build().withNoNextPage()
+
+        fakePokeRepository.addGetPokemonListResponse(Single.just(pokemonListResponse))
+
+        pokemonListResponse.results.map { it.name }.forEach { name ->
+            fakePokeRepository.addGetDetailedPokemonResponse(name, Single.just(DetailedPokemonBuilder.build(name)))
+        }
 
         launchFragmentInHiltContainer<MainFragment>()
 
