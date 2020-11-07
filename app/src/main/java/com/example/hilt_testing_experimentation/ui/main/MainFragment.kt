@@ -26,9 +26,11 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
     private val binding by viewBinding(MainFragmentBinding::bind)
 
-    private lateinit var pokemonAdapter: PokemonAdapter
     private lateinit var loadingAdapter: LoadingAdapter
     private lateinit var concatAdapter: ConcatAdapter
+
+    @Inject
+    lateinit var pokemonAdapter: PokemonAdapter
 
     @Inject
     lateinit var analytics: Analytics
@@ -68,7 +70,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     }
 
     private fun setupRecycler() {
-        pokemonAdapter = PokemonAdapter()
         loadingAdapter = LoadingAdapter(object: LoadingAdapter.VisibilityListener {
             override fun isVisible(nextPage: Int) {
                 viewModel.loadMorePokemon(nextPage)

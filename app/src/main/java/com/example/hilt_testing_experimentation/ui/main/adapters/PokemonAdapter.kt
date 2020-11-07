@@ -3,12 +3,19 @@ package com.example.hilt_testing_experimentation.ui.main.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.hilt_testing_experimentation.R
 import com.example.hilt_testing_experimentation.databinding.ItemPokemonBinding
+import com.example.hilt_testing_experimentation.di.analytics.Analytics
+import com.example.hilt_testing_experimentation.di.imageloader.ImageLoader
 import com.example.hilt_testing_experimentation.domain.detailedpokemon.DetailedPokemon
+import javax.inject.Inject
 
-class PokemonAdapter(private val pokemon: MutableList<DetailedPokemon> = mutableListOf()) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
+class PokemonAdapter @Inject constructor(
+    private val analytics: Analytics,
+    private val imageLoader: ImageLoader
+) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
+
+    private val pokemon: MutableList<DetailedPokemon> = mutableListOf()
 
     fun updateItems(list: List<DetailedPokemon>) {
         pokemon.clear()
@@ -31,14 +38,18 @@ class PokemonAdapter(private val pokemon: MutableList<DetailedPokemon> = mutable
         holder.bind(pokemon[position])
     }
 
-    class ViewHolder(private val binding: ItemPokemonBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ItemPokemonBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(pokemon: DetailedPokemon) {
             binding.name.text = pokemon.name
-            Glide
-                .with(binding.root.context)
-                .load(pokemon.sprites?.frontDefault)
-                .error(R.drawable.placeholder)
-                .into(binding.image)
+            pokemon.sprites?.frontDefault?.let { imageUrl ->
+                imageLoader.loadImage(
+                    context = binding.root.context,
+                    loadable = imageUrl,
+                    placeholder = R.drawable.placeholder,
+                    imageView = binding.image,
+                    onResourceReady = { pokemon.name?.let { analytics.logImageView(it) } }
+                )
+            }
         }
     }
 }

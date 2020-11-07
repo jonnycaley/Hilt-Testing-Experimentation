@@ -8,7 +8,7 @@ class AnalyticsImpl @Inject constructor(): Analytics {
         Log.d("Analytics","Logging screen view: $screenView")
     }
 
-    override fun logImageView(name: String?) {
-        Log.d("Analytics","Logging image view: $name")
+    override fun logImageView(imageView: String) {
+        Log.d("Analytics","Logging image view: $imageView")
     }
 }
