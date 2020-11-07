@@ -18,6 +18,7 @@ import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
 import io.reactivex.rxjava3.core.Single
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -58,7 +59,7 @@ class MainFragmentTest {
     }
 
     @Test
-    fun givenError_whenStartFragment_thenErrorTextShown() {
+    fun givenError_whenStartFragment_thenErrorTextShownAndAnalyticsNotRecorded() {
         fakePokeRepository.addGetPokemonListResponse(Single.error(Exception("An exception occurred")))
 
         launchFragmentInHiltContainer<MainFragment>()
@@ -68,7 +69,7 @@ class MainFragmentTest {
     }
 
     @Test
-    fun givenDataLoaded_whenStartFragment_thenLoadingHiddenAndDataShown() {
+    fun givenDataLoaded_whenStartFragment_thenLoadingHiddenAndDataShownAndAnalyticsRecorded() {
         val pokemonListResponse = PokemonListBuilder.build().withNoNextPage()
 
         fakePokeRepository.addGetPokemonListResponse(Single.just(pokemonListResponse))
@@ -86,10 +87,14 @@ class MainFragmentTest {
             .checkPokemonDisplayed(pokemon[0])
             .checkPokemonDisplayed(pokemon[1])
             .checkPokemonDisplayed(pokemon[2])
+
+        assertEquals(fakeAnalytics.imageViews[0], pokemon[0])
+        assertEquals(fakeAnalytics.imageViews[1], pokemon[1])
+        assertEquals(fakeAnalytics.imageViews[2], pokemon[2])
     }
 
     @Test
-    fun givenDataLoaded_whenStartFragment_thenAnalyticsRecorded() {
+    fun givenImagesNotLoaded_whenDataLoaded_thenAnalyticsNotRecorded() {
         val pokemonListResponse = PokemonListBuilder.build().withNoNextPage()
 
         fakePokeRepository.addGetPokemonListResponse(Single.just(pokemonListResponse))
@@ -100,10 +105,13 @@ class MainFragmentTest {
             fakePokeRepository.addGetDetailedPokemonResponse(name, Single.just(DetailedPokemonBuilder.build(name)))
         }
 
+        fakeImageLoader.loadSuccessfully = false
+
         launchFragmentInHiltContainer<MainFragment>()
 
-        assert(fakeAnalytics.imageViews.contains(pokemon[0]))
-        assert(fakeAnalytics.imageViews.contains(pokemon[1]))
-        assert(fakeAnalytics.imageViews.contains(pokemon[2]))
+        MainFragmentRobot()
+            .checkPokemonDisplayed(pokemon[0])
+
+        assertEquals(fakeAnalytics.imageViews.size, 0)
     }
 }
