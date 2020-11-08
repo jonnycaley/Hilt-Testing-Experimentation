@@ -1,2 +1,3 @@
+include ':feature-pokemondetail'
 include ':app'
 rootProject.name = "Hilt-Testing-Experimentation"
