@@ -1,0 +1,18 @@
+def build_versions = [:] // create a local hashmap
+build_versions.compileSdkVersion = 30
+build_versions.buildToolsVersion = "30.0.1"
+build_versions.minSdkVersion = 21
+build_versions.targetSdkVersion = 30
+ext.build_versions = build_versions // define a global gradle variable build_versions and set it to the local
+
+def versions = [:]
+versions.kotlinVersion = "1.4.10"
+
+def deps = [:]
+
+def kotlin = [:]
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlinVersion"
+kotlin.gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlinVersion"
+deps.kotlin = kotlin
+
+ext.deps = deps

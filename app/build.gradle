@@ -6,15 +6,15 @@ apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion build_versions.compileSdkVersion
+    buildToolsVersion build_versions.buildToolsVersion
 
     defaultConfig {
         applicationId "com.example.hilt_testing_experimentation"
-        minSdkVersion 16
+        minSdkVersion build_versions.minSdkVersion
         multiDexEnabled true
 
-        targetSdkVersion 29
+        targetSdkVersion build_versions.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -52,7 +52,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation deps.kotlin.stdlib
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
@@ -88,7 +88,7 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
     implementation "io.reactivex.rxjava3:rxkotlin:3.0.0"
 
-    implementation "androidx.recyclerview:recyclerview:1.2.0-alpha05"
+    implementation "androidx.recyclerview:recyclerview:1.2.0-alpha06"
     implementation "androidx.cardview:cardview:1.0.0"
 
     implementation 'androidx.palette:palette:1.0.0'
@@ -114,4 +114,6 @@ dependencies {
     testImplementation 'org.robolectric:robolectric:4.4'
 
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
+
+    implementation project(":feature-pokemondetail")
 }
