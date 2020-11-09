@@ -6,13 +6,29 @@ build_versions.targetSdkVersion = 30
 ext.build_versions = build_versions // define a global gradle variable build_versions and set it to the local
 
 def versions = [:]
-versions.kotlinVersion = "1.4.10"
+versions.kotlin = '1.4.10'
+versions.hilt = '2.28-alpha'
+versions.gradle = '4.0.1'
+versions.google = '4.3.4'
+ext.versions = versions
 
 def deps = [:]
 
+def gradle = [:]
+gradle.build = "com.android.tools.build:gradle:$versions.gradle"
+deps.gradle = gradle
+
 def kotlin = [:]
-kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlinVersion"
-kotlin.gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlinVersion"
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+kotlin.gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
 deps.kotlin = kotlin
+
+def hilt = [:]
+hilt.gradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
+deps.hilt = hilt
+
+def google = [:]
+google.gms = "com.google.gms:google-services:$versions.google"
+deps.google = google
 
 ext.deps = deps
