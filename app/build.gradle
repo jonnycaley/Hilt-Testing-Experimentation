@@ -55,13 +55,12 @@ dependencies {
     implementation deps.kotlin.stdlib
     implementation deps.androidx.core.ktx
     implementation deps.androidx.appcompat.appcompat
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation "androidx.lifecycle:lifecycle-viewmodel:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-runtime:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-common-java8:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    implementation deps.androidx.constraintlayout
+    implementation deps.androidx.lifecycle.extensions
+    implementation deps.androidx.lifecycle.viewmodel
+    implementation deps.androidx.lifecycle.runtime
+    implementation deps.androidx.lifecycle.common
+    implementation deps.androidx.lifecycle.livedata
     testImplementation deps.junit.junit
     androidTestImplementation deps.androidx.test.junit
     androidTestImplementation deps.androidx.espresso.core

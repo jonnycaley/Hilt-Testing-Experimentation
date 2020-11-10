@@ -16,6 +16,8 @@ versions.material = '1.2.1'
 versions.junit = '4.13.1'
 versions.androidxjunit = '1.1.2'
 versions.androidxespressocore = '3.3.0'
+versions.androidxconstraintlayout = '2.0.4'
+versions.androidxlifecycle = '2.2.0'
 ext.versions = versions
 
 def deps = [:]
@@ -54,6 +56,16 @@ androidx.test = test
 def espresso = [:]
 espresso.core = "androidx.test.espresso:espresso-core:$versions.androidxespressocore"
 androidx.espresso = espresso
+
+androidx.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.androidxconstraintlayout"
+
+def lifecycle = [:]
+lifecycle.extensions = "androidx.lifecycle:lifecycle-extensions:$versions.androidxlifecycle"
+lifecycle.viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.androidxlifecycle"
+lifecycle.runtime = "androidx.lifecycle:lifecycle-runtime-ktx:$versions.androidxlifecycle"
+lifecycle.common = "androidx.lifecycle:lifecycle-common-java8:$versions.androidxlifecycle"
+lifecycle.livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.androidxlifecycle"
+androidx.lifecycle = lifecycle
 
 deps.androidx = androidx
 
