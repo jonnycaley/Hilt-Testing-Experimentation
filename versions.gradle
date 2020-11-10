@@ -19,8 +19,21 @@ versions.androidxespressocore = '3.3.0'
 versions.androidxconstraintlayout = '2.0.4'
 versions.androidxlifecycle = '2.2.0'
 versions.androidxHilt = '1.0.0-alpha02'
+versions.androidxFragment = '1.2.5'
+versions.androidxRecyclerview = '1.2.0-alpha06'
+versions.androidxCardview = '1.0.0'
+versions.androidxPalette = '1.0.0'
 versions.retrofit = '2.9.0'
 versions.rxjava = '3.0.0'
+versions.logging = '4.9.0'
+versions.chucker = '3.2.0'
+versions.glide = '4.11.0'
+versions.mockito = '3.4.4'
+versions.androidxTesting = '2.1.0'
+versions.androidxFragment = '1.2.5'
+versions.firebase = '18.0.0'
+versions.robolectric = '4.4'
+versions.espresso = '3.3.0'
 ext.versions = versions
 
 def deps = [:]
@@ -64,6 +77,12 @@ espresso.core = "androidx.test.espresso:espresso-core:$versions.androidxespresso
 androidx.espresso = espresso
 
 androidx.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.androidxconstraintlayout"
+androidx.fragment = "androidx.fragment:fragment-ktx:$versions.androidxFragment"
+androidx.recyclerview = "androidx.recyclerview:recyclerview:$versions.androidxRecyclerview"
+androidx.cardview = "androidx.cardview:cardview:$versions.androidxCardview"
+androidx.palette = "androidx.palette:palette-ktx:$versions.androidxPalette"
+androidx.testing = "androidx.arch.core:core-testing:$versions.androidxTesting"
+androidx.fragmentTesting = "androidx.fragment:fragment-testing:$versions.androidxFragment"
 
 def lifecycle = [:]
 lifecycle.extensions = "androidx.lifecycle:lifecycle-extensions:$versions.androidxlifecycle"
@@ -99,5 +118,19 @@ rxjava.rxandroid = "io.reactivex.rxjava3:rxandroid:$versions.rxjava"
 rxjava.rxjava = "io.reactivex.rxjava3:rxjava:$versions.rxjava"
 rxjava.rxkotlin = "io.reactivex.rxjava3:rxkotlin:$versions.rxjava"
 deps.rxjava = rxjava
+
+deps.okhttp = "com.squareup.okhttp3:logging-interceptor:$versions.okhttp"
+
+def chucker = [:]
+chucker.library = "com.github.chuckerteam.chucker:library:$versions.chucker"
+chucker.libraryNoOp = "com.github.chuckerteam.chucker:library-no-op:$versions.chucker"
+deps.chucker = chucker
+
+def glide = [:]
+glide.glide = "com.github.bumptech.glide:glide:$versions.glide"
+glide.compiler = "com.github.bumptech.glide:compiler:$versions.glide"
+deps.glide = glide
+
+deps.mockito = "org.mockito:mockito-core:3.4.4"
 
 ext.deps = deps

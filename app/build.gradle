@@ -84,28 +84,26 @@ dependencies {
     implementation deps.rxjava.rxjava
     implementation deps.rxjava.rxkotlin
 
-    implementation "androidx.fragment:fragment-ktx:1.2.5"
+    implementation deps.androidx.fragment
 
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    implementation deps.okhttp
 
-    implementation "androidx.recyclerview:recyclerview:1.2.0-alpha06"
+    implementation deps.androidx.recyclerview
 
-    implementation "androidx.cardview:cardview:1.0.0"
-    implementation 'androidx.palette:palette-ktx:1.0.0'
+    implementation deps.androidx.cardview
+    implementation deps.androidx.palette
 
+    debugImplementation deps.chucker.library
+    releaseImplementation deps.chucker.library
 
-    debugImplementation "com.github.chuckerteam.chucker:library:3.2.0"
-    releaseImplementation "com.github.chuckerteam.chucker:library-no-op:3.2.0"
+    implementation deps.glide.glide
+    annotationProcessor deps.glide.compiler
 
+    testImplementation deps.mockito
 
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    testImplementation deps.androidx.testing
 
-    testImplementation 'org.mockito:mockito-core:3.4.4'
-    testImplementation "androidx.arch.core:core-testing:2.1.0"
-
-    def fragment_version = "1.2.5"
-    debugImplementation("androidx.fragment:fragment-testing:$fragment_version") {
+    debugImplementation(deps.androidx.fragmentTesting) {
         exclude group: 'androidx.test', module: 'monitor' //fixes issue https://github.com/android/android-test/issues/731
     }
 
