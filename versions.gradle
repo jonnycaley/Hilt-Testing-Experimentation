@@ -18,6 +18,8 @@ versions.androidxjunit = '1.1.2'
 versions.androidxespressocore = '3.3.0'
 versions.androidxconstraintlayout = '2.0.4'
 versions.androidxlifecycle = '2.2.0'
+versions.androidxHilt = '1.0.0-alpha02'
+versions.retrofit = '2.9.0'
 ext.versions = versions
 
 def deps = [:]
@@ -33,6 +35,9 @@ deps.kotlin = kotlin
 
 def hilt = [:]
 hilt.gradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
+hilt.android = "com.google.dagger:hilt-android:$versions.hilt"
+hilt.androidCompiler = "com.google.dagger:hilt-android-compiler:$versions.hilt"
+hilt.androidTesting = "com.google.dagger:hilt-android-testing:$versions.hilt"
 deps.hilt = hilt
 
 def google = [:]
@@ -67,6 +72,11 @@ lifecycle.common = "androidx.lifecycle:lifecycle-common-java8:$versions.androidx
 lifecycle.livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.androidxlifecycle"
 androidx.lifecycle = lifecycle
 
+def androidxhilt = [:]
+androidxhilt.lifecycle = "androidx.hilt:hilt-lifecycle-viewmodel:$versions.androidxHilt"
+androidxhilt.compiler = "androidx.hilt:hilt-compiler:$versions.androidxHilt"
+androidx.hilt = androidxhilt
+
 deps.androidx = androidx
 
 def material = [:]
@@ -76,5 +86,11 @@ deps.material = material
 def junit = [:]
 junit.junit = "junit:junit:$versions.junit"
 deps.junit = junit
+
+def retrofit = [:]
+retrofit.retrofit = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.converter = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+retrofit.adapter = "com.squareup.retrofit2:adapter-rxjava3:$versions.retrofit"
+deps.retrofit = retrofit
 
 ext.deps = deps

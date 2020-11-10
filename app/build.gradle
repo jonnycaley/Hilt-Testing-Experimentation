@@ -65,16 +65,17 @@ dependencies {
     androidTestImplementation deps.androidx.test.junit
     androidTestImplementation deps.androidx.espresso.core
 
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation deps.retrofit.retrofit
+    implementation deps.retrofit.converter
+    implementation deps.retrofit.adapter
 
-    implementation "com.google.dagger:hilt-android:$versions.hilt"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
-    kapt "com.google.dagger:hilt-android-compiler:$versions.hilt"
-    kapt "androidx.hilt:hilt-compiler:1.0.0-alpha02" // for @ViewModelInject
-    androidTestImplementation "com.google.dagger:hilt-android-testing:$versions.hilt"
-    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$versions.hilt"
+    implementation deps.hilt.android
+    kapt deps.hilt.androidCompiler
+    kaptAndroidTest deps.hilt.androidCompiler
+    androidTestImplementation deps.hilt.androidTesting
 
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation deps.androidx.hilt.lifecycle
+    kapt deps.androidx.hilt.compiler // for @ViewModelInject
 
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     // Because RxAndroid releases are few and far between, it is recommended you also
@@ -82,7 +83,6 @@ dependencies {
     // (see https://github.com/ReactiveX/RxJava/releases for latest 3.x.x version)
     implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
     implementation "androidx.fragment:fragment-ktx:1.2.5"
-    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
 
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
     implementation "io.reactivex.rxjava3:rxkotlin:3.0.0"
