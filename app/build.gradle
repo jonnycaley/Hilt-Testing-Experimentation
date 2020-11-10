@@ -107,12 +107,11 @@ dependencies {
         exclude group: 'androidx.test', module: 'monitor' //fixes issue https://github.com/android/android-test/issues/731
     }
 
-    implementation 'com.google.firebase:firebase-analytics:18.0.0'
-    implementation 'com.google.firebase:firebase-analytics:18.0.0'
+    implementation deps.firebase
 
-    testImplementation 'org.robolectric:robolectric:4.4'
+    testImplementation deps.robolectric
 
-    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
+    androidTestImplementation deps.androidx.espressoContrib
 
     implementation project(":feature-pokemondetail")
 }

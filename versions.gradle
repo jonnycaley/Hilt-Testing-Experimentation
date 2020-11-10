@@ -15,7 +15,6 @@ versions.appcompat = '1.2.0'
 versions.material = '1.2.1'
 versions.junit = '4.13.1'
 versions.androidxjunit = '1.1.2'
-versions.androidxespressocore = '3.3.0'
 versions.androidxconstraintlayout = '2.0.4'
 versions.androidxlifecycle = '2.2.0'
 versions.androidxHilt = '1.0.0-alpha02'
@@ -73,7 +72,8 @@ test.junit = "androidx.test.ext:junit:$versions.androidxjunit"
 androidx.test = test
 
 def espresso = [:]
-espresso.core = "androidx.test.espresso:espresso-core:$versions.androidxespressocore"
+espresso.core = "androidx.test.espresso:espresso-core:$versions.espresso"
+androidx.espressoContrib = "androidx.test.espresso:espresso-contrib:$versions.espresso"
 androidx.espresso = espresso
 
 androidx.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.androidxconstraintlayout"
@@ -131,6 +131,8 @@ glide.glide = "com.github.bumptech.glide:glide:$versions.glide"
 glide.compiler = "com.github.bumptech.glide:compiler:$versions.glide"
 deps.glide = glide
 
-deps.mockito = "org.mockito:mockito-core:3.4.4"
+deps.mockito = "org.mockito:mockito-core:$versions.mockito"
+deps.firebase = "com.google.firebase:firebase-analytics:$versions.firebase"
+deps.robolectric = "org.robolectric:robolectric:$versions.robolectric"
 
 ext.deps = deps
