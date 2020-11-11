@@ -8,14 +8,14 @@ import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.core.viewBinding
+import com.example.core.visibleIf
 import com.example.hilt_testing_experimentation.R
 import com.example.hilt_testing_experimentation.databinding.MainFragmentBinding
 import com.example.hilt_testing_experimentation.di.analytics.Analytics
 import com.example.hilt_testing_experimentation.ui.main.adapters.LoadingAdapter
 import com.example.hilt_testing_experimentation.ui.main.adapters.PokemonAdapter
 import com.example.hilt_testing_experimentation.utils.Status
-import com.example.hilt_testing_experimentation.utils.viewBinding
-import com.example.hilt_testing_experimentation.utils.visibleIf
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

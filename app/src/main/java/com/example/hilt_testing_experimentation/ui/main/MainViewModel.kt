@@ -4,11 +4,11 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.core.getOffsetFromUrl
 import com.example.hilt_testing_experimentation.di.schedulers.AppSchedulers
 import com.example.hilt_testing_experimentation.domain.PokeRepository
 import com.example.hilt_testing_experimentation.domain.detailedpokemon.DetailedPokemon
 import com.example.hilt_testing_experimentation.utils.Resource
-import com.example.hilt_testing_experimentation.utils.getOffsetFromUrl
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo
 
