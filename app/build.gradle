@@ -114,4 +114,5 @@ dependencies {
     androidTestImplementation deps.androidx.espressoContrib
 
     implementation project(":core")
+    implementation project(":feature-pokemondetail")
 }

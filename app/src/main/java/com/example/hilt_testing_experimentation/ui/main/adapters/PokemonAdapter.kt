@@ -3,6 +3,7 @@ package com.example.hilt_testing_experimentation.ui.main.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.feature_pokemondetail.PokemonDetailActivity
 import com.example.hilt_testing_experimentation.R
 import com.example.hilt_testing_experimentation.databinding.ItemPokemonBinding
 import com.example.hilt_testing_experimentation.di.analytics.Analytics
@@ -49,6 +50,9 @@ class PokemonAdapter @Inject constructor(
                     imageView = binding.image,
                     onResourceReady = { pokemon.name?.let { analytics.logImageView(it) } }
                 )
+            }
+            binding.root.setOnClickListener {
+                PokemonDetailActivity.start()
             }
         }
     }

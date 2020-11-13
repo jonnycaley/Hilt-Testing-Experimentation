@@ -35,7 +35,9 @@ dependencies {
     implementation deps.kotlin.stdlib
     implementation deps.androidx.core.ktx
     implementation deps.androidx.appcompat.appcompat
+    implementation deps.androidx.lifecycle.viewmodel
     implementation deps.material.material
+    implementation deps.androidx.constraintlayout
     testImplementation deps.junit.junit
     androidTestImplementation deps.androidx.test.junit
     androidTestImplementation deps.androidx.espresso.core
