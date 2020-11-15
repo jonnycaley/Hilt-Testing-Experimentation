@@ -1,3 +1,4 @@
+include ':feature-pokemonlist'
 include ':core'
 include ':feature-pokemondetail'
 include ':app'
