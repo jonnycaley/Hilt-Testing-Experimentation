@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.example.core.getOffsetFromUrl
 import com.example.hilt_testing_experimentation.di.schedulers.AppSchedulers
 import com.example.hilt_testing_experimentation.domain.PokeRepository
-import com.example.hilt_testing_experimentation.domain.detailedpokemon.DetailedPokemon
+import com.example.core.domain.detailedpokemon.DetailedPokemon
 import com.example.hilt_testing_experimentation.utils.Resource
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo

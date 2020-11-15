@@ -41,4 +41,6 @@ dependencies {
     testImplementation deps.junit.junit
     androidTestImplementation deps.androidx.test.junit
     androidTestImplementation deps.androidx.espresso.core
+
+    implementation project(":core")
 }

@@ -1,5 +1,6 @@
 package com.example.hilt_testing_experimentation.domain.detailedpokemon
 
+import com.example.core.domain.detailedpokemon.Sprites
 import com.example.hilt_testing_experimentation.data.model.detailedpokemondto.SpritesDto
 import javax.inject.Inject
 

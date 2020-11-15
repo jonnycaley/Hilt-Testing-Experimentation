@@ -1,7 +1,7 @@
 package com.example.hilt_testing_experimentation.domain
 
 import com.example.hilt_testing_experimentation.data.PokeApiService
-import com.example.hilt_testing_experimentation.domain.detailedpokemon.DetailedPokemon
+import com.example.core.domain.detailedpokemon.DetailedPokemon
 import com.example.hilt_testing_experimentation.domain.detailedpokemon.DetailedPokemonDtoMapper
 import com.example.hilt_testing_experimentation.domain.pokemonlist.PokemonList
 import com.example.hilt_testing_experimentation.domain.pokemonlist.PokemonListDtoMapper

@@ -8,7 +8,7 @@ import com.example.hilt_testing_experimentation.R
 import com.example.hilt_testing_experimentation.databinding.ItemPokemonBinding
 import com.example.hilt_testing_experimentation.di.analytics.Analytics
 import com.example.hilt_testing_experimentation.di.imageloader.ImageLoader
-import com.example.hilt_testing_experimentation.domain.detailedpokemon.DetailedPokemon
+import com.example.core.domain.detailedpokemon.DetailedPokemon
 import javax.inject.Inject
 
 class PokemonAdapter @Inject constructor(
@@ -52,7 +52,7 @@ class PokemonAdapter @Inject constructor(
                 )
             }
             binding.root.setOnClickListener {
-                PokemonDetailActivity.start()
+                PokemonDetailActivity.start(pokemon)
             }
         }
     }

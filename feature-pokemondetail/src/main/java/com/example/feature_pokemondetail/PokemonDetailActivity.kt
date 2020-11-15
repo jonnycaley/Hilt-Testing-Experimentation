@@ -3,6 +3,7 @@ package com.example.feature_pokemondetail
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.core.domain.detailedpokemon.DetailedPokemon
 
 class PokemonDetailActivity : AppCompatActivity() {
 
@@ -12,8 +13,8 @@ class PokemonDetailActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun start() {
-            Log.i("PokemonDetail","Starting activity")
+        fun start(pokemon: DetailedPokemon) {
+            Log.i("PokemonDetail","Starting activity with pokemon : ${pokemon.name}")
         }
     }
 }
