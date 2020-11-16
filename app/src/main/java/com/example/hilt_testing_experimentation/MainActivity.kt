@@ -2,7 +2,7 @@ package com.example.hilt_testing_experimentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.hilt_testing_experimentation.ui.main.MainFragment
+import com.example.feature_pokemonlist.ui.MainFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

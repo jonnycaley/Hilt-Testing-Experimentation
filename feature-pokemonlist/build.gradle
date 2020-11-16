@@ -1,6 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -10,9 +14,11 @@ android {
     defaultConfig {
         minSdkVersion build_versions.minSdkVersion
         targetSdkVersion build_versions.targetSdkVersion
+        multiDexEnabled true
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+        targetSdkVersion build_versions.targetSdkVersion
+
+        testInstrumentationRunner "com.example.hilt_testing_experimentation.CustomTestRunner"
     }
 
     buildTypes {
@@ -26,7 +32,18 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    sourceSets {
+        androidTest {
+            java.srcDirs += "src/testcommon/java"
+        }
+        test {
+            java.srcDirs += "src/testcommon/java"
+        }
     }
 }
 
@@ -35,8 +52,60 @@ dependencies {
     implementation deps.kotlin.stdlib
     implementation deps.androidx.core.ktx
     implementation deps.androidx.appcompat.appcompat
+    implementation deps.androidx.constraintlayout
     implementation deps.material.material
     testImplementation deps.junit.junit
     androidTestImplementation deps.androidx.test.junit
     androidTestImplementation deps.androidx.espresso.core
+
+    implementation deps.retrofit.retrofit
+    implementation deps.retrofit.converter
+    implementation deps.retrofit.adapter
+
+    implementation deps.hilt.android
+    kapt deps.hilt.androidCompiler
+    kaptAndroidTest deps.hilt.androidCompiler
+    androidTestImplementation deps.hilt.androidTesting
+
+
+    implementation deps.androidx.hilt.lifecycle
+    kapt deps.androidx.hilt.compiler // for @ViewModelInject
+
+    implementation deps.rxjava.rxandroid
+    // Because RxAndroid releases are few and far between, it is recommended you also
+    // explicitly depend on RxJava's latest version for bug fixes and new features.
+    // (see https://github.com/ReactiveX/RxJava/releases for latest 3.x.x version)
+    implementation deps.rxjava.rxjava
+    implementation deps.rxjava.rxkotlin
+
+    implementation deps.androidx.fragment
+
+    implementation deps.okhttp
+
+    implementation deps.androidx.recyclerview
+
+    implementation deps.androidx.cardview
+    implementation deps.androidx.palette
+
+    debugImplementation deps.chucker.library
+    releaseImplementation deps.chucker.library
+
+    implementation deps.glide.glide
+    annotationProcessor deps.glide.compiler
+
+    testImplementation deps.mockito
+
+    testImplementation deps.androidx.testing
+
+    debugImplementation(deps.androidx.fragmentTesting) {
+        exclude group: 'androidx.test', module: 'monitor' //fixes issue https://github.com/android/android-test/issues/731
+    }
+
+    implementation deps.firebase
+
+    testImplementation deps.robolectric
+
+    androidTestImplementation deps.androidx.espressoContrib
+
+    implementation project(":core")
 }

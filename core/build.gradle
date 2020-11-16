@@ -12,8 +12,6 @@ android {
         multiDexEnabled true
 
         targetSdkVersion build_versions.targetSdkVersion
-
-        testInstrumentationRunner "com.example.hilt_testing_experimentation.CustomTestRunner"
     }
 
     buildFeatures {

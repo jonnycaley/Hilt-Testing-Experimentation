@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "823588073917",
+    "firebase_url": "https://jonny-pokemon-app.firebaseio.com",
+    "project_id": "jonny-pokemon-app",
+    "storage_bucket": "jonny-pokemon-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823588073917:android:f952af51c496f29e3862d4",
+        "android_client_info": {
+          "package_name": "com.example.feature_pokemonlist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823588073917-a56575pas2fcilev56tpcp48vedom9vg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCabOilIgo1WB43SFd3C8LYryeZvJ2aWOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823588073917-a56575pas2fcilev56tpcp48vedom9vg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
