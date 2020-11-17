@@ -17,8 +17,6 @@ android {
         targetSdkVersion build_versions.targetSdkVersion
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "com.example.hilt_testing_experimentation.CustomTestRunner"
     }
 
     buildTypes {

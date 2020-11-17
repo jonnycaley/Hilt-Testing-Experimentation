@@ -1,5 +1,6 @@
 package com.example.hilt_testing_experimentation.utils
 
+import com.example.core.getOffsetFromUrl
 import org.junit.Test
 import org.junit.Assert.*
 

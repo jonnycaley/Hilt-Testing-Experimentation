@@ -100,6 +100,7 @@ dependencies {
     debugImplementation(deps.androidx.fragmentTesting) {
         exclude group: 'androidx.test', module: 'monitor' //fixes issue https://github.com/android/android-test/issues/731
     }
+    debugImplementation(deps.androidx.core.ktx)
 
     implementation deps.firebase
 

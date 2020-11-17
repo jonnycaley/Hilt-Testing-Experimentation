@@ -20,7 +20,7 @@
 
     <application>
         <activity
-            android:name="com.example.feature_pokemonlist.HiltTestActivityy"
+            android:name="com.example.feature_pokemonlist.TestActivity"
             android:exported="false"  />
     </application>
 

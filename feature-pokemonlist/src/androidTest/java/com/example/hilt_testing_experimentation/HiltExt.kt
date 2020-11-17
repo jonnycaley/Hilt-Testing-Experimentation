@@ -25,7 +25,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.testing.FragmentScenario.EmptyFragmentActivity
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
-import com.example.feature_pokemonlist.HiltTestActivity
+import com.example.feature_pokemonlist.TestActivity
 import com.example.feature_pokemonlist.R
 
 /**
@@ -45,11 +45,11 @@ inline fun <reified T : Fragment> launchFragmentInHiltContainer(
     val startActivityIntent = Intent.makeMainActivity(
         ComponentName(
             ApplicationProvider.getApplicationContext(),
-            HiltTestActivity::class.java
+            TestActivity::class.java
         )
     ).putExtra(EmptyFragmentActivity.THEME_EXTRAS_BUNDLE_KEY, themeResId)
 
-    ActivityScenario.launch<HiltTestActivity>(startActivityIntent).onActivity { activity ->
+    ActivityScenario.launch<TestActivity>(startActivityIntent).onActivity { activity ->
         val fragment: Fragment = activity.supportFragmentManager.fragmentFactory.instantiate(
             Preconditions.checkNotNull(T::class.java.classLoader),
             T::class.java.name

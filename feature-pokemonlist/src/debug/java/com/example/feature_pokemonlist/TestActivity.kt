@@ -20,4 +20,4 @@ import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HiltTestActivityy : AppCompatActivity()
+class TestActivity : AppCompatActivity()
