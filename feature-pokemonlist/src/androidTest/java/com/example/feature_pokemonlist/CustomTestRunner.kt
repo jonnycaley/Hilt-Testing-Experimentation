@@ -1,4 +1,4 @@
-package com.example.hilt_testing_experimentation
+package com.example.feature_pokemonlist
 
 import android.app.Application
 import android.content.Context

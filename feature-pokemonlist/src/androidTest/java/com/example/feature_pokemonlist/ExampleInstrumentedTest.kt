@@ -1,4 +1,4 @@
-package com.example.hilt_testing_experimentation
+package com.example.feature_pokemonlist
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

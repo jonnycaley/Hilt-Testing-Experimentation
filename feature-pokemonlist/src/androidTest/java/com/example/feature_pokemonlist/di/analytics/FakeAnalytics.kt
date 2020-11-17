@@ -1,6 +1,4 @@
-package com.example.hilt_testing_experimentation.di.analytics
-
-import com.example.feature_pokemonlist.di.analytics.Analytics
+package com.example.feature_pokemonlist.di.analytics
 
 class FakeAnalytics : Analytics {
 

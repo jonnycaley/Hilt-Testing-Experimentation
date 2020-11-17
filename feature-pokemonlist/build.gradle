@@ -18,7 +18,7 @@ android {
 
         targetSdkVersion build_versions.targetSdkVersion
 
-        testInstrumentationRunner "com.example.hilt_testing_experimentation.CustomTestRunner"
+        testInstrumentationRunner "com.example.feature_pokemonlist.CustomTestRunner"
     }
 
     buildTypes {

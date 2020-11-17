@@ -1,4 +1,4 @@
-package com.example.hilt_testing_experimentation
+package com.example.feature_pokemonlist
 
 import org.junit.Test
 import org.junit.Assert.*

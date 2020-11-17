@@ -1,4 +1,4 @@
-package com.example.hilt_testing_experimentation.utils
+package com.example.feature_pokemonlist.utils
 
 import com.example.core.getOffsetFromUrl
 import org.junit.Test

@@ -1,4 +1,4 @@
-package com.example.hilt_testing_experimentation.di.imageloader
+package com.example.feature_pokemonlist.di.imageloader
 
 import android.content.Context
 import android.widget.ImageView

@@ -1,4 +1,4 @@
-package com.example.hilt_testing_experimentation.domain
+package com.example.feature_pokemonlist.domain
 
 import com.example.core.domain.detailedpokemon.DetailedPokemon
 import com.example.feature_pokemonlist.domain.PokeRepository

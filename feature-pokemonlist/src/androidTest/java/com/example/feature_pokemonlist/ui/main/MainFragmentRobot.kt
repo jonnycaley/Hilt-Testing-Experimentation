@@ -1,4 +1,4 @@
-package com.example.hilt_testing_experimentation.ui.main
+package com.example.feature_pokemonlist.ui.main
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
