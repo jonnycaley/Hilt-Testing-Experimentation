@@ -18,11 +18,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.feature_pokemonlist">
 
-    <application
-        android:theme="@style/Theme.AppCompat.Light">
+    <application>
         <activity
             android:name=".HiltTestActivity"
-            android:exported="false"  />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light"/>
     </application>
 
 </manifest>
