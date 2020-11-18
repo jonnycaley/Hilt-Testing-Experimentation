@@ -1,5 +1,7 @@
+include ':core-android'
+include ':core-naivgation'
 include ':feature-pokemonlist'
-include ':core'
+include ':core-domain'
 include ':feature-pokemondetail'
 include ':app'
 rootProject.name = "Hilt-Testing-Experimentation"

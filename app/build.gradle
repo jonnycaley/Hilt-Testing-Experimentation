@@ -61,7 +61,7 @@ dependencies {
     implementation deps.okhttp
     implementation deps.androidx.recyclerview
 
-    implementation project(":core")
+    implementation project(':core-domain')
     implementation project(":feature-pokemondetail")
     implementation project(":feature-pokemonlist")
 }

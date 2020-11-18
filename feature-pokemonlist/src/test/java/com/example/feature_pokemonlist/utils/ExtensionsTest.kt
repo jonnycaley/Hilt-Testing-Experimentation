@@ -1,6 +1,6 @@
 package com.example.feature_pokemonlist.utils
 
-import com.example.core.getOffsetFromUrl
+import com.example.core_android.getOffsetFromUrl
 import org.junit.Test
 import org.junit.Assert.*
 

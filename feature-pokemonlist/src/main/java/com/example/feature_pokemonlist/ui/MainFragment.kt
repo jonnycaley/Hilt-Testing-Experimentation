@@ -8,8 +8,8 @@ import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.core.viewBinding
-import com.example.core.visibleIf
+import com.example.core_android.viewBinding
+import com.example.core_android.visibleIf
 import com.example.feature_pokemonlist.R
 import com.example.feature_pokemonlist.databinding.MainFragmentBinding
 import com.example.feature_pokemonlist.di.analytics.Analytics

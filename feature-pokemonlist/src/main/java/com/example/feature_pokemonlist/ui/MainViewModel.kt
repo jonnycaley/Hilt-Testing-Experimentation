@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.core.domain.detailedpokemon.DetailedPokemon
-import com.example.core.getOffsetFromUrl
+import com.example.core_android.getOffsetFromUrl
 import com.example.feature_pokemonlist.di.schedulers.AppSchedulers
 import com.example.feature_pokemonlist.domain.PokeRepository
 import com.example.feature_pokemonlist.utils.Resource
