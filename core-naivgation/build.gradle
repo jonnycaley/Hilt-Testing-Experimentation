@@ -10,5 +10,5 @@ java {
 
 dependencies {
     implementation deps.kotlin.stdlib
-    implementation project(':core-domain')
+    implementation project(':core') // this wont work as java library cannot depend on android library
 }

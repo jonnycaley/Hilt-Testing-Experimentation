@@ -42,6 +42,5 @@ dependencies {
     androidTestImplementation deps.androidx.test.junit
     androidTestImplementation deps.androidx.espresso.core
 
-    implementation project(':core-domain')
     implementation project(':core')
 }

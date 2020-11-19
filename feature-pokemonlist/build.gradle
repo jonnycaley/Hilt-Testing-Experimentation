@@ -108,6 +108,5 @@ dependencies {
 
     androidTestImplementation deps.androidx.espressoContrib
 
-    implementation project(':core-domain')
     implementation project(':core')
 }

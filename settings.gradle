@@ -1,7 +1,6 @@
 include ':core'
 include ':core-naivgation'
 include ':feature-pokemonlist'
-include ':core-domain'
 include ':feature-pokemondetail'
 include ':app'
 rootProject.name = "Hilt-Testing-Experimentation"
