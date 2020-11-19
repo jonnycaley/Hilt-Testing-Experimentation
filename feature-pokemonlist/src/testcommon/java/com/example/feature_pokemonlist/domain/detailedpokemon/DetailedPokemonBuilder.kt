@@ -1,6 +1,6 @@
 package com.example.feature_pokemonlist.domain.detailedpokemon
 
-import com.example.core.domain.detailedpokemon.DetailedPokemon
+import com.example.core.domain.DetailedPokemon
 
 object DetailedPokemonBuilder {
 

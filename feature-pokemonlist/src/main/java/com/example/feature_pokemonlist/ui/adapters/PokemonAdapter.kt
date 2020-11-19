@@ -3,7 +3,7 @@ package com.example.feature_pokemonlist.ui.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.core.domain.detailedpokemon.DetailedPokemon
+import com.example.core.domain.DetailedPokemon
 import com.example.feature_pokemonlist.R
 import com.example.feature_pokemonlist.databinding.ItemPokemonBinding
 import com.example.feature_pokemonlist.di.analytics.Analytics

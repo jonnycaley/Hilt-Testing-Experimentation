@@ -1,7 +1,7 @@
 package com.example.feature_pokemonlist.domain
 
+import com.example.core.domain.DetailedPokemon
 import com.example.feature_pokemonlist.data.PokeApiService
-import com.example.core.domain.detailedpokemon.DetailedPokemon
 import com.example.feature_pokemonlist.domain.detailedpokemon.DetailedPokemonDtoMapper
 import com.example.feature_pokemonlist.domain.pokemonlist.PokemonList
 import com.example.feature_pokemonlist.domain.pokemonlist.PokemonListDtoMapper

@@ -3,7 +3,7 @@ package com.example.feature_pokemondetail
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.core.domain.detailedpokemon.DetailedPokemon
+import com.example.core.domain.DetailedPokemon
 
 class PokemonDetailActivity : AppCompatActivity() {
 

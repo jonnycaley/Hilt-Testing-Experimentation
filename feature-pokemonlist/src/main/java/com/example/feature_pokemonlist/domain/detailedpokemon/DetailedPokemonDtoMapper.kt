@@ -1,6 +1,6 @@
 package com.example.feature_pokemonlist.domain.detailedpokemon
 
-import com.example.core.domain.detailedpokemon.DetailedPokemon
+import com.example.core.domain.DetailedPokemon
 import com.example.feature_pokemonlist.data.model.detailedpokemondto.DetailedPokemonDto
 import javax.inject.Inject
 
