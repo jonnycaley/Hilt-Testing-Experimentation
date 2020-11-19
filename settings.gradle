@@ -1,4 +1,4 @@
-include ':core-android'
+include ':core'
 include ':core-naivgation'
 include ':feature-pokemonlist'
 include ':core-domain'
