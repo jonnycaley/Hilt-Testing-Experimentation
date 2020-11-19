@@ -1,4 +1,4 @@
-package com.example.core.domain.detailedpokemon
+package com.example.core.domain
 
 data class DetailedPokemon(
     val name: String?,
