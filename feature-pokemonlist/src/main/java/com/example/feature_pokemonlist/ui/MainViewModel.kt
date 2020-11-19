@@ -6,9 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.core.domain.DetailedPokemon
 import com.example.core.getOffsetFromUrl
-import com.example.feature_pokemonlist.di.schedulers.AppSchedulers
+import com.example.core.di.schedulers.AppSchedulers
 import com.example.feature_pokemonlist.domain.PokeRepository
-import com.example.feature_pokemonlist.utils.Resource
+import com.example.core.utils.Resource
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo
 

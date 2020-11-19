@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -42,4 +45,20 @@ dependencies {
     androidTestImplementation deps.androidx.test.junit
     androidTestImplementation deps.androidx.espresso.core
     implementation deps.androidx.lifecycle.common
+
+    debugImplementation deps.chucker.library
+    releaseImplementation deps.chucker.library
+
+    implementation deps.hilt.android
+    kapt deps.hilt.androidCompiler
+    kaptAndroidTest deps.hilt.androidCompiler
+    androidTestImplementation deps.hilt.androidTesting
+
+    implementation deps.okhttp
+
+    implementation deps.retrofit.retrofit
+    implementation deps.retrofit.converter
+    implementation deps.retrofit.adapter
+
+    implementation deps.rxjava.rxandroid
 }

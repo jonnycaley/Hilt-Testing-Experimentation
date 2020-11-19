@@ -1,7 +1,7 @@
 package com.example.feature_pokemonlist.ui.main
 
-import com.example.feature_pokemonlist.di.analytics.Analytics
-import com.example.feature_pokemonlist.di.analytics.AnalyticsModule
+import com.example.core.di.analytics.Analytics
+import com.example.core.di.analytics.AnalyticsModule
 import com.example.feature_pokemonlist.di.imageloader.ImageLoader
 import com.example.feature_pokemonlist.di.imageloader.ImageLoaderModule
 import com.example.feature_pokemonlist.domain.PokeRepository

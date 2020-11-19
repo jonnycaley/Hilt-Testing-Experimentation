@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.feature_pokemonlist.domain.PokeRepository
 import com.example.feature_pokemonlist.domain.detailedpokemon.DetailedPokemonBuilder
 import com.example.feature_pokemonlist.domain.pokemonlist.PokemonListBuilder
-import com.example.feature_pokemonlist.utils.TestSchedulers
+import com.example.core.utils.TestSchedulers
 import io.reactivex.rxjava3.core.Single
 import org.junit.Rule
 import org.junit.Test

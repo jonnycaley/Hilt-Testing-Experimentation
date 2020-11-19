@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.core.domain.DetailedPokemon
 import com.example.feature_pokemonlist.R
 import com.example.feature_pokemonlist.databinding.ItemPokemonBinding
-import com.example.feature_pokemonlist.di.analytics.Analytics
+import com.example.core.di.analytics.Analytics
 import com.example.feature_pokemonlist.di.imageloader.ImageLoader
 import javax.inject.Inject
 

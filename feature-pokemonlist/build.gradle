@@ -67,7 +67,6 @@ dependencies {
     kaptAndroidTest deps.hilt.androidCompiler
     androidTestImplementation deps.hilt.androidTesting
 
-
     implementation deps.androidx.hilt.lifecycle
     kapt deps.androidx.hilt.compiler // for @ViewModelInject
 
@@ -80,15 +79,10 @@ dependencies {
 
     implementation deps.androidx.fragment
 
-    implementation deps.okhttp
-
     implementation deps.androidx.recyclerview
 
     implementation deps.androidx.cardview
     implementation deps.androidx.palette
-
-    debugImplementation deps.chucker.library
-    releaseImplementation deps.chucker.library
 
     implementation deps.glide.glide
     annotationProcessor deps.glide.compiler

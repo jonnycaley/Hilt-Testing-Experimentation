@@ -1,6 +1,6 @@
 package com.example.feature_pokemonlist.domain.pokemonlist
 
-import com.example.feature_pokemonlist.data.model.pokemonlistdto.PokemonDto
+import com.example.core.data.model.pokemonlistdto.PokemonDto
 import javax.inject.Inject
 
 class PokemonDtoMapper @Inject constructor() {

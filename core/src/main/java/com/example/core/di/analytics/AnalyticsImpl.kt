@@ -1,0 +1,15 @@
+package com.example.core.di.analytics
+
+import android.util.Log
+import com.example.core.di.analytics.Analytics
+import javax.inject.Inject
+
+class AnalyticsImpl @Inject constructor(): Analytics {
+    override fun logScreenView(screenView: String) {
+        Log.d("Analytics","Logging screen view: $screenView")
+    }
+
+    override fun logImageView(imageView: String) {
+        Log.d("Analytics","Logging image view: $imageView")
+    }
+}

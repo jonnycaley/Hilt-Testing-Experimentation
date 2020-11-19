@@ -1,11 +1,19 @@
 package com.example.feature_pokemondetail
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import com.example.core.di.analytics.Analytics
 import com.example.core.domain.DetailedPokemon
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class PokemonDetailActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var analytics: Analytics
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -13,8 +21,9 @@ class PokemonDetailActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun start(pokemon: DetailedPokemon) {
-            Log.i("PokemonDetail","Starting activity with pokemon : ${pokemon.name}")
+        fun start(context: Context, pokemon: DetailedPokemon) {
+            val intent = Intent(context, PokemonDetailActivity::class.java)
+            context.startActivity(intent)
         }
     }
 }

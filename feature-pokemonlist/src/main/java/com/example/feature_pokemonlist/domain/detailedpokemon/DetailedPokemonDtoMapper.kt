@@ -1,7 +1,7 @@
 package com.example.feature_pokemonlist.domain.detailedpokemon
 
 import com.example.core.domain.DetailedPokemon
-import com.example.feature_pokemonlist.data.model.detailedpokemondto.DetailedPokemonDto
+import com.example.core.data.model.detailedpokemondto.DetailedPokemonDto
 import javax.inject.Inject
 
 class DetailedPokemonDtoMapper @Inject constructor(

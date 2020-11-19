@@ -12,10 +12,10 @@ import com.example.core.viewBinding
 import com.example.core.visibleIf
 import com.example.feature_pokemonlist.R
 import com.example.feature_pokemonlist.databinding.MainFragmentBinding
-import com.example.feature_pokemonlist.di.analytics.Analytics
+import com.example.core.di.analytics.Analytics
 import com.example.feature_pokemonlist.ui.adapters.LoadingAdapter
 import com.example.feature_pokemonlist.ui.adapters.PokemonAdapter
-import com.example.feature_pokemonlist.utils.Status
+import com.example.core.utils.Status
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
