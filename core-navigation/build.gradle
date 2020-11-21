@@ -50,6 +50,6 @@ dependencies {
     androidTestImplementation deps.hilt.androidTesting
 
     implementation project(":core")
-    implementation project(":feature-pokemonlist")
-    implementation project(":feature-pokemondetail")
+    api project(":feature-pokemonlist")
+    api project(":feature-pokemondetail")
 }
