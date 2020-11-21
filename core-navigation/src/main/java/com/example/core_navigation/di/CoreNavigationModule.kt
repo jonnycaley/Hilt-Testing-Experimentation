@@ -1,5 +1,7 @@
 package com.example.core_navigation.di
 
+import com.example.core_navigation.base.AppNavigator
+import com.example.core_navigation.base.AppNavigatorImpl
 import com.example.core_navigation.feature_pokemonlist.PokemonListNavigatorImpl
 import com.example.feature_pokemonlist.navigation.PokemonListNavigator
 import dagger.Binds
@@ -13,5 +15,8 @@ abstract class CoreNavigationModule {
 
     @Binds
     abstract fun bindsPokemonListNavigation(pokemonListNavigatorImpl: PokemonListNavigatorImpl): PokemonListNavigator
+
+    @Binds
+    abstract fun bindsAppNavigator(appNavigatorImpl: AppNavigatorImpl): AppNavigator
 
 }
