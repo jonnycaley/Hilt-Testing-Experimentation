@@ -3,7 +3,7 @@
     package="com.example.feature_pokemondetail">
 
     <application>
-        <activity android:name=".PokemonDetailActivity"></activity>
+        <activity android:name=".PokemonDetailActivity" />
     </application>
 
 </manifest>

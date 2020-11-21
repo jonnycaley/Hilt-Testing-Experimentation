@@ -8,11 +8,13 @@ import com.example.feature_pokemonlist.R
 import com.example.feature_pokemonlist.databinding.ItemPokemonBinding
 import com.example.core.di.analytics.Analytics
 import com.example.feature_pokemonlist.di.imageloader.ImageLoader
+import com.example.feature_pokemonlist.navigation.PokemonListNavigator
 import javax.inject.Inject
 
 class PokemonAdapter @Inject constructor(
     private val analytics: Analytics,
-    private val imageLoader: ImageLoader
+    private val imageLoader: ImageLoader,
+    private val pokemonListNavigator: PokemonListNavigator
 ) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
     private val pokemon: MutableList<DetailedPokemon> = mutableListOf()
@@ -51,7 +53,7 @@ class PokemonAdapter @Inject constructor(
                 )
             }
             binding.root.setOnClickListener {
-                // TODO: features must not depend on each other
+                pokemonListNavigator.toPokemonDetail(it.context, pokemon)
             }
         }
     }
