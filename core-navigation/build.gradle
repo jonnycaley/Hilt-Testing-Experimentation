@@ -50,6 +50,15 @@ dependencies {
     androidTestImplementation deps.hilt.androidTesting
 
     implementation project(":core")
+    /**
+     * Feature dependencies need to be api because of Hilt, from link:
+     * https://developer.android.com/training/dependency-injection/hilt-android#hilt-modules
+     *
+     * Note: Because Hilt's code generation needs access to all of the Gradle
+     * modules that use Hilt, the Gradle module that compiles your Application
+     * class also needs to have all of your Hilt modules and constructor-injected
+     * classes in its transitive dependencies.
+     */
     api project(":feature-pokemonlist")
     api project(":feature-pokemondetail")
 }
