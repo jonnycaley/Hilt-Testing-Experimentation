@@ -65,6 +65,5 @@ dependencies {
     implementation deps.androidx.recyclerview
 
     implementation project(':core')
-    implementation project(":feature-pokemondetail")
-    implementation project(":feature-pokemonlist")
+    implementation project(":core-navigation")
 }
