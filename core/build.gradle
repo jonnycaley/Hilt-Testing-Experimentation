@@ -12,9 +12,9 @@ android {
 
     defaultConfig {
         minSdkVersion build_versions.minSdkVersion
-        multiDexEnabled true
-
         targetSdkVersion build_versions.targetSdkVersion
+        multiDexEnabled true
+        testInstrumentationRunner "com.example.feature_pokemonlist.CustomTestRunner"
     }
 
     buildFeatures {

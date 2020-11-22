@@ -13,9 +13,6 @@ android {
         minSdkVersion build_versions.minSdkVersion
         targetSdkVersion build_versions.targetSdkVersion
         multiDexEnabled true
-
-        targetSdkVersion build_versions.targetSdkVersion
-
         testInstrumentationRunner "com.example.feature_pokemonlist.CustomTestRunner"
     }
 
