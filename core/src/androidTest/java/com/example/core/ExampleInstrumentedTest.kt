@@ -1,4 +1,4 @@
-package com.example.core_arch
+package com.example.core
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
