@@ -12,7 +12,9 @@ import com.example.feature_pokemonlist.di.imageloader.FakeImageLoader
 import com.example.feature_pokemonlist.domain.FakePokeRepository
 import com.example.feature_pokemonlist.domain.pokemonlist.PokemonListBuilder
 import com.example.feature_pokemonlist.domain.pokemonlist.withNoNextPage
+import com.example.feature_pokemonlist.di.navigation.FakePokemonListNavigator
 import com.example.feature_pokemonlist.launchFragmentInHiltContainer
+import com.example.feature_pokemonlist.navigation.PokemonListNavigator
 import com.example.feature_pokemonlist.ui.MainFragment
 import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -34,6 +36,7 @@ class MainFragmentTest {
     private val fakePokeRepository: FakePokeRepository = FakePokeRepository()
     private val fakeImageLoader: FakeImageLoader = FakeImageLoader()
     private val fakeAnalytics: FakeAnalytics = FakeAnalytics()
+    private val fakeNavigator: FakePokemonListNavigator = FakePokemonListNavigator()
 
     @BindValue @JvmField
     val pokeRepository: PokeRepository = fakePokeRepository
@@ -43,6 +46,9 @@ class MainFragmentTest {
 
     @BindValue @JvmField
     val analytics: Analytics = fakeAnalytics
+
+    @BindValue @JvmField
+    val navigator: PokemonListNavigator = fakeNavigator
 
     @Before
     fun before() {
