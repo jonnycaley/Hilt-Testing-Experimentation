@@ -2,7 +2,7 @@ package com.example.hilt_testing_experimentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.core_navigation.base.AppNavigator
+import com.example.core_navigation.app.AppNavigator
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

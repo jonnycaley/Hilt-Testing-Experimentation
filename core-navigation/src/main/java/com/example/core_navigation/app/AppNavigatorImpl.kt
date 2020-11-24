@@ -1,4 +1,4 @@
-package com.example.core_navigation.base
+package com.example.core_navigation.app
 
 import com.example.feature_pokemonlist.ui.MainFragment
 import javax.inject.Inject
