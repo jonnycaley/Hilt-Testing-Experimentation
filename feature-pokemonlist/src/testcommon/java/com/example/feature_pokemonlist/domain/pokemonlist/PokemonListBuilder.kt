@@ -1,7 +1,5 @@
 package com.example.feature_pokemonlist.domain.pokemonlist
 
-import com.example.feature_pokemonlist.domain.pokemonlist.PokemonList
-
 object PokemonListBuilder {
     fun build(): PokemonList {
         return PokemonList(
@@ -15,4 +13,8 @@ object PokemonListBuilder {
 
 fun PokemonList.withNoNextPage(): PokemonList {
     return this.copy(next = null)
+}
+
+fun PokemonList.withOnePokemon(): PokemonList {
+    return this.copy(pokemon = this.pokemon.subList(0,1))
 }

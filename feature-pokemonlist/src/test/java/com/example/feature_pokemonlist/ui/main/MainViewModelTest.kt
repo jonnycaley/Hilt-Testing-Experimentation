@@ -5,6 +5,7 @@ import com.example.feature_pokemonlist.domain.PokeRepository
 import com.example.feature_pokemonlist.domain.detailedpokemon.DetailedPokemonBuilder
 import com.example.feature_pokemonlist.domain.pokemonlist.PokemonListBuilder
 import com.example.core.utils.TestSchedulers
+import com.example.feature_pokemonlist.domain.pokemonlist.withOnePokemon
 import io.reactivex.rxjava3.core.Single
 import org.junit.Rule
 import org.junit.Test
@@ -46,9 +47,9 @@ class MainViewModelTest {
     @Test
     fun `when load pokemon success, then resource success`() {
         `when`(mockPokeRepository.getPokemonList(0)).thenReturn(
-            Single.just(PokemonListBuilder.build())
+            Single.just(PokemonListBuilder.build().withOnePokemon())
         )
-        `when`(mockPokeRepository.getDetailedPokemon("Pikachu")).thenReturn(
+        `when`(mockPokeRepository.getDetailedPokemon("pokemon-name-0")).thenReturn(
             Single.just(DetailedPokemonBuilder.pikachu)
         )
 
