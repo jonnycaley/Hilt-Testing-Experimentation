@@ -77,7 +77,7 @@ dependencies {
     implementation deps.androidx.palette
 
     implementation deps.glide.glide
-    annotationProcessor deps.glide.compiler
+    kapt deps.glide.compiler
 
     testImplementation deps.mockito
 
