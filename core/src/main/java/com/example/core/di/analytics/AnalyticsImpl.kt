@@ -1,7 +1,6 @@
 package com.example.core.di.analytics
 
 import android.util.Log
-import com.example.core.di.analytics.Analytics
 import javax.inject.Inject
 
 class AnalyticsImpl @Inject constructor(): Analytics {
