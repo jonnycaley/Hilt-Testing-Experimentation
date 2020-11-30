@@ -48,7 +48,7 @@ dependencies {
     kaptAndroidTest deps.hilt.androidCompiler
     androidTestImplementation deps.hilt.androidTesting
 
-    implementation deps.okhttp
+    api deps.okhttp
 
     implementation deps.retrofit.retrofit
     implementation deps.retrofit.converter
