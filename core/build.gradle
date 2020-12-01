@@ -14,7 +14,6 @@ android {
         minSdkVersion build_versions.minSdkVersion
         targetSdkVersion build_versions.targetSdkVersion
         multiDexEnabled true
-        testInstrumentationRunner "com.example.core.CustomTestRunner"
     }
 
     buildFeatures {
