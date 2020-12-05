@@ -1,4 +1,4 @@
-package com.example.core_arch
+package com.example.core
 
 import org.junit.Test
 import org.junit.Assert.*

@@ -1,4 +1,4 @@
-package com.example.core_arch
+package com.example.core
 
 import com.example.core.getOffsetFromUrl
 import org.junit.Test
