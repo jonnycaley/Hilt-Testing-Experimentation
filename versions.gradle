@@ -22,6 +22,7 @@ versions.androidxFragment = '1.2.5'
 versions.androidxRecyclerview = '1.2.0-alpha06'
 versions.androidxCardview = '1.0.0'
 versions.androidxPalette = '1.0.0'
+versions.androidxcompose = '1.0.0-alpha08'
 versions.retrofit = '2.9.0'
 versions.rxjava = '3.0.0'
 versions.logging = '4.9.0'
@@ -77,6 +78,16 @@ espresso.core = "androidx.test.espresso:espresso-core:$versions.espresso"
 androidx.espressoContrib = "androidx.test.espresso:espresso-contrib:$versions.espresso"
 androidx.espresso = espresso
 
+def compose = [:]
+compose.ui = "androidx.compose.ui:ui:$versions.androidxcompose"
+compose.foundation = "androidx.compose.foundation:foundation:$versions.androidxcompose"
+compose.material = "androidx.compose.material:material:$versions.androidxcompose"
+compose.materialcore = "androidx.compose.material:material-icons-core:$versions.androidxcompose"
+compose.materialicons = "androidx.compose.material:material-icons-extended:$versions.androidxcompose"
+compose.runtimelivedata = "androidx.compose.runtime:runtime-livedata:$versions.androidxcompose"
+compose.runtimexjava = "androidx.compose.runtime:runtime-rxjava2:$versions.androidxcompose"
+androidx.compose = compose
+
 androidx.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.androidxconstraintlayout"
 androidx.fragment = "androidx.fragment:fragment-ktx:$versions.androidxFragment"
 androidx.recyclerview = "androidx.recyclerview:recyclerview:$versions.androidxRecyclerview"
@@ -84,6 +95,8 @@ androidx.cardview = "androidx.cardview:cardview:$versions.androidxCardview"
 androidx.palette = "androidx.palette:palette-ktx:$versions.androidxPalette"
 androidx.testing = "androidx.arch.core:core-testing:$versions.androidxTesting"
 androidx.fragmentTesting = "androidx.fragment:fragment-testing:$versions.androidxFragment"
+androidx.uitooling = "androidx.ui:ui-tooling:1.0.0-alpha07"
+androidx.uitest = "androidx.ui:ui-test:1.0.0-alpha07"
 
 def lifecycle = [:]
 lifecycle.extensions = "androidx.lifecycle:lifecycle-extensions:$versions.androidxlifecycle"

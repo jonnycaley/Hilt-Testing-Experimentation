@@ -61,20 +61,19 @@ dependencies {
     implementation deps.androidx.hilt.lifecycle
     kapt deps.androidx.hilt.compiler // for @ViewModelInject
 
-    implementation 'androidx.compose.ui:ui:1.0.0-alpha05'
+    implementation deps.androidx.compose.ui
     // Tooling support (Previews, etc.)
-    implementation 'androidx.ui:ui-tooling:1.0.0-alpha05'
+    implementation deps.androidx.uitooling
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
-    implementation 'androidx.compose.foundation:foundation:1.0.0-alpha05'
+    implementation deps.androidx.compose.foundation
     // Material Design
-    implementation 'androidx.compose.material:material:1.0.0-alpha05'
+    implementation deps.androidx.compose.material
     // Material design icons
-    implementation 'androidx.compose.material:material-icons-core:1.0.0-alpha05'
-    implementation 'androidx.compose.material:material-icons-extended:1.0.0-alpha05'
+    implementation deps.androidx.compose.materialcore
+    implementation deps.androidx.compose.materialicons
     // Integration with observables
-    implementation 'androidx.compose.runtime:runtime-livedata:1.0.0-alpha05'
-    implementation 'androidx.compose.runtime:runtime-rxjava2:1.0.0-alpha05'
-
+    implementation deps.androidx.compose.runtimelivedata
+    implementation deps.androidx.compose.runtimexjava
     // UI Tests
-    androidTestImplementation 'androidx.ui:ui-test:1.0.0-alpha05'
+    androidTestImplementation deps.androidx.uitest
 }
