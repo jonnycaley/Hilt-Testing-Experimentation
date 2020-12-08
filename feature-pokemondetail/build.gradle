@@ -76,4 +76,5 @@ dependencies {
     implementation deps.androidx.compose.runtimexjava
     // UI Tests
     androidTestImplementation deps.androidx.uitest
+
 }
