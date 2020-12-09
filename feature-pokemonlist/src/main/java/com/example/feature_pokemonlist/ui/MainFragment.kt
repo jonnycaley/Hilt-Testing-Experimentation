@@ -94,6 +94,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     }
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() =
+            MainFragment()
     }
 }
