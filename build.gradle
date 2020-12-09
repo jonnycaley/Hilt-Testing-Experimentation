@@ -1,16 +1,20 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: "com.dropbox.affectedmoduledetector"
+
 buildscript {
     apply from: 'versions.gradle'
     repositories {
         google()
         jcenter()
         maven { url "https://oss.jfrog.org/libs-snapshot" }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     }
     dependencies {
         classpath deps.gradle.build
         classpath deps.kotlin.gradlePlugin
         classpath deps.hilt.gradlePlugin
         classpath deps.google.gms
+        classpath "com.dropbox.affectedmoduledetector:affectedmoduledetector:0.1.1-SNAPSHOT"
     }
 }
 
@@ -18,6 +22,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
     }
 }
 
@@ -35,4 +42,13 @@ allprojects {
  */
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+affectedModuleDetector {
+    baseDir = "${project.rootDir}"
+    pathsAffectingAllModules = [
+            "buildSrc/"
+    ]
+    logFilename = "output.log"
+    logFolder = "${project.rootDir}/output"
 }
