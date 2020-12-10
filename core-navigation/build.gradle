@@ -51,6 +51,8 @@ dependencies {
      * class also needs to have all of your Hilt modules and constructor-injected
      * classes in its transitive dependencies.
      */
-    api project(":feature-pokemonlist")
+//    api project(":feature-pokemonlist")
     api project(":feature-pokemondetail")
+
+    implementation project(":feature-pokemonlist")
 }
