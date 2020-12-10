@@ -16,6 +16,7 @@ class MainViewModel @ViewModelInject constructor(
     private val pokeRepository: PokeRepository,
     private val schedulers: AppSchedulers
 ) : ViewModel() {
+
     private val pokemonList = mutableListOf<DetailedPokemon>()
 
     private val _pokemon: MutableLiveData<Resource<List<DetailedPokemon>>> = MutableLiveData(Resource.loading())
