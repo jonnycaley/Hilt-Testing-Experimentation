@@ -26,6 +26,7 @@ class PokemonDetailActivity : AppCompatActivity() {
         fun start(context: Context, pokemon: DetailedPokemon) {
             val intent = Intent(context, PokemonDetailActivity::class.java)
             context.startActivity(intent)
+
         }
     }
 }
