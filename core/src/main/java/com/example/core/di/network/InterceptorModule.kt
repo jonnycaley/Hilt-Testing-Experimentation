@@ -14,7 +14,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 @Module
 @InstallIn(ApplicationComponent::class)
 object InterceptorModule {
-
     @Provides
     @IntoSet
     fun provideYahooInterceptor(): Interceptor =
