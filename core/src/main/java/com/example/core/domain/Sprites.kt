@@ -1,5 +1,3 @@
 package com.example.core.domain
 
-data class Sprites(
-    val frontDefault: String?
-)
+data class Sprites(val frontDefault: String?)

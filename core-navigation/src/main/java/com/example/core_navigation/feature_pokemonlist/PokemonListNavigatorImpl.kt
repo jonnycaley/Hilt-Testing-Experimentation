@@ -10,4 +10,5 @@ class PokemonListNavigatorImpl @Inject constructor(): PokemonListNavigator {
     override fun toPokemonDetail(context: Context, detailedPokemon: DetailedPokemon) {
         PokemonDetailActivity.start(context, detailedPokemon)
     }
+
 }
