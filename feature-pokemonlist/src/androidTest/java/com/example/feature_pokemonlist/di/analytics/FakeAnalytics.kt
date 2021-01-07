@@ -3,7 +3,6 @@ package com.example.feature_pokemonlist.di.analytics
 import com.example.core.di.analytics.Analytics
 
 class FakeAnalytics : Analytics {
-
     val screenViews = mutableListOf<String>()
     val imageViews = mutableListOf<String>()
 
