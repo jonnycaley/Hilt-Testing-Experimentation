@@ -23,10 +23,10 @@ jobs:
           java-version: 1.8
       - name: Get master commit
         run: git rev-parse origin/master
-      - name: Unit tests
-        run: bash ./gradlew runAffectedUnitTests -Paffected_module_detector.enable
       - name: Get changed files
         run: git --no-pager diff --name-only 6e23b7c624fdbe30bb610d8f2f399a97bf311d24
+      - name: Unit tests
+        run: bash ./gradlew runAffectedUnitTests -Paffected_module_detector.enable
       - name: Upload test output artifacts
         uses: actions/upload-artifact@v2
         with:
