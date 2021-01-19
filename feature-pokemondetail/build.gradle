@@ -61,20 +61,20 @@ dependencies {
     implementation deps.androidx.hilt.lifecycle
     kapt deps.androidx.hilt.compiler // for @ViewModelInject
 
-//    implementation deps.androidx.compose.ui
-//    // Tooling support (Previews, etc.)
-//    implementation deps.androidx.uitooling
-//    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
-//    implementation deps.androidx.compose.foundation
-//    // Material Design
-//    implementation deps.androidx.compose.material
-//    // Material design icons
-//    implementation deps.androidx.compose.materialcore
-//    implementation deps.androidx.compose.materialicons
-//    // Integration with observables
-//    implementation deps.androidx.compose.runtimelivedata
-//    implementation deps.androidx.compose.runtimexjava
-//    implementation deps.androidx.compose.compiler
+    implementation deps.androidx.compose.ui
+    // Tooling support (Previews, etc.)
+    implementation deps.androidx.uitooling
+    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation deps.androidx.compose.foundation
+    // Material Design
+    implementation deps.androidx.compose.material
+    // Material design icons
+    implementation deps.androidx.compose.materialcore
+    implementation deps.androidx.compose.materialicons
+    // Integration with observables
+    implementation deps.androidx.compose.runtimelivedata
+    implementation deps.androidx.compose.runtimexjava
+    implementation deps.androidx.compose.compiler
     // UI Tests
     androidTestImplementation deps.androidx.uitest
 }
