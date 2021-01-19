@@ -23,3 +23,8 @@ jobs:
           java-version: 1.8
       - name: Unit tests
         run: bash ./gradlew runAffectedUnitTests -Paffected_module_detector.enable
+      - name: Upload test output artifacts
+          uses: actions/upload-artifact@v2
+          with:
+            name: generated output file
+            path: output/output.log
