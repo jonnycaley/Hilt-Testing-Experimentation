@@ -78,16 +78,16 @@ espresso.core = "androidx.test.espresso:espresso-core:$versions.espresso"
 androidx.espressoContrib = "androidx.test.espresso:espresso-contrib:$versions.espresso"
 androidx.espresso = espresso
 
-//def compose = [:]
-//compose.ui = "androidx.compose.ui:ui:$versions.androidxcompose"
-//compose.foundation = "androidx.compose.foundation:foundation:$versions.androidxcompose"
-//compose.material = "androidx.compose.material:material:$versions.androidxcompose"
-//compose.materialcore = "androidx.compose.material:material-icons-core:$versions.androidxcompose"
-//compose.materialicons = "androidx.compose.material:material-icons-extended:$versions.androidxcompose"
-//compose.runtimelivedata = "androidx.compose.runtime:runtime-livedata:$versions.androidxcompose"
-//compose.runtimexjava = "androidx.compose.runtime:runtime-rxjava2:$versions.androidxcompose"
-//compose.compiler = "androidx.compose.compiler:compiler:$versions.androidxcompose"
-//androidx.compose = compose
+def compose = [:]
+compose.ui = "androidx.compose.ui:ui:$versions.androidxcompose"
+compose.foundation = "androidx.compose.foundation:foundation:$versions.androidxcompose"
+compose.material = "androidx.compose.material:material:$versions.androidxcompose"
+compose.materialcore = "androidx.compose.material:material-icons-core:$versions.androidxcompose"
+compose.materialicons = "androidx.compose.material:material-icons-extended:$versions.androidxcompose"
+compose.runtimelivedata = "androidx.compose.runtime:runtime-livedata:$versions.androidxcompose"
+compose.runtimexjava = "androidx.compose.runtime:runtime-rxjava2:$versions.androidxcompose"
+compose.compiler = "androidx.compose.compiler:compiler:$versions.androidxcompose"
+androidx.compose = compose
 
 androidx.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.androidxconstraintlayout"
 androidx.fragment = "androidx.fragment:fragment-ktx:$versions.androidxFragment"
