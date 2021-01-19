@@ -51,5 +51,6 @@ affectedModuleDetector {
     ]
     logFilename = "output.log"
     logFolder = "${project.rootDir}/output"
-    compareFrom = "ForkCommit"
+    specifiedBranch = "origin/master"
+    compareFrom = "SpecifiedBranchCommit"
 }
