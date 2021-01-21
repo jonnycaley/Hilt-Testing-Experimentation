@@ -15,3 +15,4 @@
 .externalNativeBuild
 .cxx
 /output
+/buildSrc/build
