@@ -32,7 +32,6 @@ versions.mockito = '3.4.4'
 versions.androidxTesting = '2.1.0'
 versions.androidxFragment = '1.2.5'
 versions.firebase = '18.0.0'
-versions.robolectric = '4.4'
 versions.espresso = '3.3.0'
 versions.okhttp = '4.9.0'
 ext.versions = versions
@@ -148,6 +147,5 @@ deps.glide = glide
 
 deps.mockito = "org.mockito:mockito-core:$versions.mockito"
 deps.firebase = "com.google.firebase:firebase-analytics:$versions.firebase"
-deps.robolectric = "org.robolectric:robolectric:$versions.robolectric"
 
 ext.deps = deps

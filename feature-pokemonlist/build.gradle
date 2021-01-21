@@ -90,8 +90,6 @@ dependencies {
 
     implementation deps.firebase
 
-    testImplementation deps.robolectric
-
     androidTestImplementation deps.androidx.espressoContrib
 
     implementation project(':core')
