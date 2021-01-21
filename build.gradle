@@ -47,7 +47,8 @@ task clean(type: Delete) {
 affectedModuleDetector {
     baseDir = "${project.rootDir}"
     pathsAffectingAllModules = [
-            "buildSrc/"
+            "buildSrc/",
+            "versions.gradle"
     ]
     logFilename = "output.log"
     logFolder = "${project.rootDir}/output"
