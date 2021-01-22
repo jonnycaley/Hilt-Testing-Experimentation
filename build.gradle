@@ -14,7 +14,7 @@ buildscript {
         classpath deps.kotlin.gradlePlugin
         classpath deps.hilt.gradlePlugin
         classpath deps.google.gms
-        classpath "com.dropbox.affectedmoduledetector:affectedmoduledetector:0.1.1-SNAPSHOT"
+        classpath "com.dropbox.affectedmoduledetector:affectedmoduledetector:0.1.1"
     }
 }
 
