@@ -16,3 +16,4 @@
 .cxx
 /output
 /buildSrc/build
+.idea
