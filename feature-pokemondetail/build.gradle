@@ -17,11 +17,6 @@ android {
         testInstrumentationRunner "com.example.feature_pokemondetail.CustomTestRunner"
     }
 
-    buildFeatures {
-        // Enables Jetpack Compose for this module
-        compose true
-    }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -32,10 +27,19 @@ android {
     }
     buildFeatures {
         viewBinding true
+        // Enables Jetpack Compose for this module
+        compose true
     }
     composeOptions {
-        kotlinCompilerVersion '1.4.0'
-        kotlinCompilerExtensionVersion '1.0.0-alpha05'
+        kotlinCompilerVersion versions.kotlin
+        kotlinCompilerExtensionVersion versions.androidxcompose
+    }
+
+    packagingOptions {
+        // Multiple dependency bring these files in. Exclude them to enable
+        // our test APK to build (has no effect on our AARs)
+        excludes += "/META-INF/AL2.0"
+        excludes += "/META-INF/LGPL2.1"
     }
 }
 
@@ -69,5 +73,5 @@ dependencies {
     implementation deps.androidx.compose.materialicons
     implementation deps.androidx.compose.runtimelivedata
     implementation deps.androidx.compose.runtimexjava
-    androidTestImplementation deps.androidx.uitest
+    androidTestImplementation deps.androidx.compose.uitest
 }
