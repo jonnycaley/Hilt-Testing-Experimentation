@@ -25,6 +25,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+        useIR = true //if you uncomment this you need to add it for all the other modules or you get an error
     }
     buildFeatures {
         viewBinding true
