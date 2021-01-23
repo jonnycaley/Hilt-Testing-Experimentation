@@ -16,4 +16,4 @@
 .cxx
 /output
 /buildSrc/build
-.idea
+/.idea/misc.xml
