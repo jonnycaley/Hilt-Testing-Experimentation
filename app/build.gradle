@@ -13,6 +13,7 @@ android {
         applicationId "com.example.hilt_testing_experimentation"
         minSdkVersion build_versions.minSdkVersion
         multiDexEnabled true
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
         targetSdkVersion build_versions.targetSdkVersion
         versionCode 1
