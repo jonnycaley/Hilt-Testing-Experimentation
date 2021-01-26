@@ -3,6 +3,7 @@ package com.example.feature_pokemonlist.domain
 import com.example.core.domain.DetailedPokemon
 import com.example.core.data.PokeApiService
 import com.example.feature_pokemonlist.domain.detailedpokemon.DetailedPokemonDtoMapper
+import com.example.feature_pokemonlist.domain.pokemonlist.Pokemon
 import com.example.feature_pokemonlist.domain.pokemonlist.PokemonList
 import com.example.feature_pokemonlist.domain.pokemonlist.PokemonListDtoMapper
 import io.reactivex.rxjava3.core.Single
@@ -17,8 +18,8 @@ open class PokeRepositoryImpl @Inject constructor(
         return pokeApiService.getPokemon(offset)
             .map { pokemonListDtoMapper.map(it) }
     }
-    override fun getDetailedPokemon(name: String): Single<DetailedPokemon> {
-        return pokeApiService.getDetailedPokemon(name)
-            .map { detailedPokemonDtoMapper.map(it) }
+    override fun getDetailedPokemon(pokemon: Pokemon): Single<DetailedPokemon> {
+        return pokeApiService.getDetailedPokemon(pokemon.name)
+            .map { detailedPokemonDtoMapper.map(it, pokemon.url) }
     }
 }

@@ -37,7 +37,7 @@ class MainViewModel @ViewModelInject constructor(
         pokeRepository.getPokemonList(offset)
             .doOnSuccess { _nextPageOffset.postValue(it.next?.getOffsetFromUrl()) }
             .flattenAsObservable { it.pokemon }
-            .flatMap { pokeRepository.getDetailedPokemon(it.name).toObservable() }
+            .flatMap { pokeRepository.getDetailedPokemon(it).toObservable() }
             .subscribeOn(schedulers.io)
             .observeOn(schedulers.mainThread)
             .subscribe({ pokemon ->

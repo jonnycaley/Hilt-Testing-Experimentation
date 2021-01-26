@@ -1,6 +1,7 @@
 package com.example.feature_pokemonlist.domain
 
 import com.example.core.domain.DetailedPokemon
+import com.example.feature_pokemonlist.domain.pokemonlist.Pokemon
 import com.example.feature_pokemonlist.domain.pokemonlist.PokemonList
 import io.reactivex.rxjava3.core.Single
 
@@ -19,7 +20,7 @@ class FakePokeRepository: PokeRepository {
         getPokemonListResponses.add(response)
     }
 
-    override fun getDetailedPokemon(name: String): Single<DetailedPokemon> {
+    override fun getDetailedPokemon(name: Pokemon): Single<DetailedPokemon> {
         getDetailedPokemonResponses[name]?.let {
             return it
         } ?: throw Exception("Haven't set getDetailedPokemon response")
