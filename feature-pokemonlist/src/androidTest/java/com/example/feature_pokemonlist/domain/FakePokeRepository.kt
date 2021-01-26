@@ -20,8 +20,8 @@ class FakePokeRepository: PokeRepository {
         getPokemonListResponses.add(response)
     }
 
-    override fun getDetailedPokemon(name: Pokemon): Single<DetailedPokemon> {
-        getDetailedPokemonResponses[name]?.let {
+    override fun getDetailedPokemon(pokemon: Pokemon): Single<DetailedPokemon> {
+        getDetailedPokemonResponses[pokemon.name]?.let {
             return it
         } ?: throw Exception("Haven't set getDetailedPokemon response")
     }

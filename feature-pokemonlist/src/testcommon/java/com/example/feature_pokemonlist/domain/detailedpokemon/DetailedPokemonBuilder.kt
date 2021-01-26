@@ -7,12 +7,12 @@ object DetailedPokemonBuilder {
     fun build(pokemon: String): DetailedPokemon {
         return DetailedPokemon(
             name = pokemon,
-            imageUrl = SpriteBuilder.build
+            imageUrl = "front-default"
         )
     }
 
     var pikachu = DetailedPokemon(
         name = "Pikachu",
-        imageUrl = SpriteBuilder.build
+        imageUrl = "front-default"
     )
 }
