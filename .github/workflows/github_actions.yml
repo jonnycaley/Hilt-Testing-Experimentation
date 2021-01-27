@@ -43,7 +43,7 @@ jobs:
       - name: UI tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 29
+          api-level: 21
           script: ./gradlew runAffectedAndroidTests -Paffected_module_detector.enable
       - name: Upload test output artifacts
         uses: actions/upload-artifact@v2
