@@ -9,7 +9,7 @@ on:
 jobs:
   unit_test:
     name: Run Unit Tests
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -29,7 +29,7 @@ jobs:
 
   ui_tests:
     name: Run UI tests
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: Checkout code
@@ -43,7 +43,7 @@ jobs:
       - name: UI tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 21
+          api-level: 29
           script: ./gradlew runAffectedAndroidTests -Paffected_module_detector.enable
       - name: Upload test output artifacts
         uses: actions/upload-artifact@v2
