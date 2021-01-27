@@ -43,7 +43,7 @@ class PokemonAdapter @Inject constructor(
     inner class ViewHolder(private val binding: ItemPokemonBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(pokemon: DetailedPokemon) {
             binding.name.text = pokemon.name
-            pokemon.sprites?.frontDefault?.let { imageUrl ->
+            pokemon.imageUrl?.let { imageUrl ->
                 imageLoader.loadImage(
                     context = binding.root.context,
                     loadable = imageUrl,

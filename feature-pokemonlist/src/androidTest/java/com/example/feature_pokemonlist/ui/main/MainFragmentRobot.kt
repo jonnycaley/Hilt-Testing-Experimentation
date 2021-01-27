@@ -32,7 +32,7 @@ class MainFragmentRobot {
     }
 
     private fun checkLoadingVisibility(isVisible: Boolean): MainFragmentRobot {
-        onView(withText("Loading..."))
+        onView(withId(R.id.text))
             .check(matches(if (isVisible) isDisplayed() else not(isDisplayed())))
         return this
     }

@@ -46,10 +46,11 @@ class MainViewModelTest {
 
     @Test
     fun `when load pokemon success, then resource success`() {
+        val pokemon = PokemonListBuilder.build().withOnePokemon()
         `when`(mockPokeRepository.getPokemonList(0)).thenReturn(
-            Single.just(PokemonListBuilder.build().withOnePokemon())
+            Single.just(pokemon)
         )
-        `when`(mockPokeRepository.getDetailedPokemon("pokemon-name-0")).thenReturn(
+        `when`(mockPokeRepository.getDetailedPokemon(pokemon.pokemon.first())).thenReturn(
             Single.just(DetailedPokemonBuilder.pikachu)
         )
 

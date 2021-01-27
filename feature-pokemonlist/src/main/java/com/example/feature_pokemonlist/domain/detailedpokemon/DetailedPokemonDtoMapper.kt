@@ -5,12 +5,12 @@ import com.example.core.data.model.detailedpokemondto.DetailedPokemonDto
 import javax.inject.Inject
 
 class DetailedPokemonDtoMapper @Inject constructor(
-    val spritesDtoMapper: SpritesDtoMapper
+    val imageUrlMapper: ImageUrlMapper
 ) {
-    fun map(dto: DetailedPokemonDto): DetailedPokemon {
+    fun map(dto: DetailedPokemonDto, url: String): DetailedPokemon {
         return DetailedPokemon(
             name = dto.name,
-            sprites = spritesDtoMapper.map(dto.spritesDto)
+            imageUrl = imageUrlMapper.map(url)
         )
     }
 }
