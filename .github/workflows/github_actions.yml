@@ -27,7 +27,7 @@ jobs:
           name: generated output file
           path: |
           output/output.log
-          "*/build/reports"
+          "**/build/reports"
 
   ui_tests:
     name: Run UI tests
@@ -53,4 +53,4 @@ jobs:
           name: generated output file
           path: |
           output/output.log
-          "*/build/reports"
+          "**/build/reports"
