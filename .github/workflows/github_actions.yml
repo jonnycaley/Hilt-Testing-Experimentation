@@ -25,9 +25,12 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: generated output file
-          path: |
-          "output/output.log"
-          "**/build/reports"
+          path: "output/output.log"
+      - name: Upload test report artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: test reports
+          path: "*/build/reports/"
 
   ui_tests:
     name: Run UI tests
@@ -51,6 +54,10 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: generated output file
-          path: |
-          "output/output.log"
-          "**/build/reports"
+          path: "output/output.log"
+
+      - name: Upload test report artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: test reports
+          path: "*/build/reports/"
