@@ -56,7 +56,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
             when (response.status) {
                 Status.SUCCESS -> {
-                    pokemonAdapter.updateItems(response.data ?: emptyList())
+                    pokemonAdapter.updateItems(response.data ?: emptyList(), requireActivity())
                 }
                 Status.ERROR -> {
                     binding.text.text = "An error occurred, try again later"

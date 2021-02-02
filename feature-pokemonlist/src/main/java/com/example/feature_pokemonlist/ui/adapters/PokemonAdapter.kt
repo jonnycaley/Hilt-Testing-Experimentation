@@ -1,7 +1,9 @@
 package com.example.feature_pokemonlist.ui.adapters
 
+import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.core.domain.DetailedPokemon
 import com.example.feature_pokemonlist.R
@@ -19,7 +21,10 @@ class PokemonAdapter @Inject constructor(
 
     private val pokemon: MutableList<DetailedPokemon> = mutableListOf()
 
-    fun updateItems(list: List<DetailedPokemon>) {
+    lateinit var activity: Activity
+
+    fun updateItems(list: List<DetailedPokemon>, activity: Activity) {
+        this.activity = activity
         pokemon.clear()
         pokemon.addAll(list)
         notifyDataSetChanged()
@@ -52,8 +57,11 @@ class PokemonAdapter @Inject constructor(
                     onResourceReady = { pokemon.name?.let { analytics.logImageView(it) } }
                 )
             }
+
+            ViewCompat.setTransitionName(binding.image, pokemon.name)
+
             binding.root.setOnClickListener {
-                pokemonListNavigator.toPokemonDetail(it.context, pokemon)
+                pokemonListNavigator.toPokemonDetail(activity, pokemon, absoluteAdapterPosition, binding.image)
             }
         }
     }
