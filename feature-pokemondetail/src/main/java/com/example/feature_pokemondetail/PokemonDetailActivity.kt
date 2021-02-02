@@ -58,7 +58,7 @@ class PokemonDetailActivity : AppCompatActivity() {
                     isFirstResource: Boolean
                 ): Boolean {
                     supportStartPostponedEnterTransition()
-                    return true
+                    return false
                 }
             })
             .into(image_view)
