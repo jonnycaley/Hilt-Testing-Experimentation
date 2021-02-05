@@ -1,8 +1,11 @@
 package com.example.feature_pokemondetail
 
+import android.content.Intent
 import androidx.test.core.app.ActivityScenario
+import androidx.test.core.app.ApplicationProvider
 import com.example.core.di.analytics.Analytics
 import com.example.core.di.analytics.AnalyticsModule
+import com.example.core.domain.DetailedPokemon
 import com.example.feature_pokemondetail.di.analytics.FakeAnalytics
 import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -33,8 +36,15 @@ class PokemonDetailActivityTest {
     @Test
     fun useAppContext() {
 
-        val activityScenario = ActivityScenario.launch(PokemonDetailActivity::class.java)
+        val activityScenario = launchActivity()
 
         assertEquals(fakeAnalytics.screenViews.size, 1)
+    }
+
+    private fun launchActivity(): Any {
+        val intent = Intent(ApplicationProvider.getApplicationContext(), PokemonDetailActivity::class.java)
+        intent.putExtra(PokemonDetailActivity.EXTRA_POKEMON, DetailedPokemon("pikachu", "pikachu.com"))
+        intent.putExtra(PokemonDetailActivity.EXTRA_TRANSITION_NAME, DetailedPokemon("pikachu", "pikachu.com"))
+        return ActivityScenario.launch<PokemonDetailActivity>(intent)
     }
 }
