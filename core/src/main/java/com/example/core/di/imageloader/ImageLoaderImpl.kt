@@ -11,7 +11,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import javax.inject.Inject
 
-internal class ImageLoaderImpl @Inject constructor() : ImageLoader {
+class ImageLoaderImpl @Inject constructor() : ImageLoader {
 
     override fun loadImage(
         context: Context,

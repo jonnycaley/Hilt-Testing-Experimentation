@@ -3,8 +3,11 @@ package com.example.feature_pokemonlist.di.imageloader
 import android.content.Context
 import android.widget.ImageView
 import com.example.core.di.imageloader.ImageLoader
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class FakeImageLoader: ImageLoader {
+@Singleton
+class FakeImageLoader @Inject constructor(): ImageLoader {
 
     var loadSuccessfully = true
 
