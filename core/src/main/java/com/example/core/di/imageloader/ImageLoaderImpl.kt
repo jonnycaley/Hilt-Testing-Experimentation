@@ -1,4 +1,4 @@
-package com.example.feature_pokemonlist.di.imageloader
+package com.example.core.di.imageloader
 
 import android.content.Context
 import android.graphics.drawable.Drawable
@@ -11,7 +11,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import javax.inject.Inject
 
-class ImageLoaderImpl @Inject constructor() : ImageLoader {
+internal class ImageLoaderImpl @Inject constructor() : ImageLoader {
 
     override fun loadImage(
         context: Context,

@@ -2,18 +2,14 @@ package com.example.feature_pokemondetail
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.ViewCompat
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
 import com.example.core.di.analytics.Analytics
+import com.example.core.di.imageloader.ImageLoader
 import com.example.core.domain.DetailedPokemon
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_pokemon_detail.*
@@ -24,6 +20,9 @@ class PokemonDetailActivity : AppCompatActivity() {
 
     @Inject
     lateinit var analytics: Analytics
+
+    @Inject
+    lateinit var imageLoader: ImageLoader
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,32 +35,17 @@ class PokemonDetailActivity : AppCompatActivity() {
             val imageTransitionName = extras.getString(EXTRA_TRANSITION_NAME)
             image_view.transitionName = imageTransitionName
         }
-        Glide
-            .with(this)
-            .load(pokemon?.imageUrl)
-            .addListener(object : RequestListener<Drawable> {
-                override fun onLoadFailed(
-                    e: GlideException?,
-                    model: Any?,
-                    target: com.bumptech.glide.request.target.Target<Drawable>?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    supportStartPostponedEnterTransition()
-                    return false
-                }
 
-                override fun onResourceReady(
-                    resource: Drawable?,
-                    model: Any?,
-                    target: com.bumptech.glide.request.target.Target<Drawable>?,
-                    dataSource: DataSource?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    supportStartPostponedEnterTransition()
-                    return false
-                }
-            })
-            .into(image_view)
+        pokemon?.imageUrl?.let {
+            imageLoader.loadImage(
+                this,
+                it,
+                R.drawable.placeholder,
+                image_view,
+                { supportStartPostponedEnterTransition() },
+                { supportStartPostponedEnterTransition() }
+            )
+        }
     }
 
     companion object {

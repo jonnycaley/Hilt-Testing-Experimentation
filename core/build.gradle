@@ -57,4 +57,7 @@ dependencies {
     implementation deps.retrofit.adapter
 
     implementation deps.rxjava.rxandroid
+
+    implementation deps.glide.glide
+    kapt deps.glide.compiler
 }

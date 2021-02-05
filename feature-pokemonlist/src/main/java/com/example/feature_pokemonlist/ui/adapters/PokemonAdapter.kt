@@ -9,7 +9,7 @@ import com.example.core.domain.DetailedPokemon
 import com.example.feature_pokemonlist.R
 import com.example.feature_pokemonlist.databinding.ItemPokemonBinding
 import com.example.core.di.analytics.Analytics
-import com.example.feature_pokemonlist.di.imageloader.ImageLoader
+import com.example.core.di.imageloader.ImageLoader
 import com.example.feature_pokemonlist.navigation.PokemonListNavigator
 import javax.inject.Inject
 
