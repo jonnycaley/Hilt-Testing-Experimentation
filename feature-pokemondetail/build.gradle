@@ -56,6 +56,7 @@ dependencies {
     androidTestImplementation deps.androidx.espresso.core
 
     implementation project(':core')
+    androidTestImplementation project(':core-test')
 
     implementation deps.hilt.android
     kapt deps.hilt.androidCompiler

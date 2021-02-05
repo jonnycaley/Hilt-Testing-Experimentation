@@ -92,4 +92,5 @@ dependencies {
 
     implementation project(':core')
     androidTestImplementation project(':core-test')
+    testImplementation project(':core-test')
 }
