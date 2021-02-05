@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdkVersion build_versions.compileSdkVersion
+    buildToolsVersion build_versions.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion build_versions.minSdkVersion
+        targetSdkVersion build_versions.targetSdkVersion
+        multiDexEnabled true
+
+        testInstrumentationRunner "com.example.feature_pokemonlist.CustomTestRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        useIR = true //if you uncomment this you need to add it for all the other modules or you get an error
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation deps.kotlin.stdlib
+    implementation deps.androidx.core.ktx
+    implementation deps.androidx.appcompat.appcompat
+    implementation deps.androidx.constraintlayout
+    implementation deps.material.material
+    testImplementation deps.junit.junit
+    androidTestImplementation deps.androidx.test.junit
+    androidTestImplementation deps.androidx.espresso.core
+
+    implementation deps.hilt.android
+    kapt deps.hilt.androidCompiler
+    kapt deps.hilt.androidCompiler
+    implementation deps.hilt.androidTesting
+
+    implementation deps.androidx.hilt.lifecycle
+    kapt deps.androidx.hilt.compiler // for @ViewModelInject
+
+    implementation project(":core")
+}

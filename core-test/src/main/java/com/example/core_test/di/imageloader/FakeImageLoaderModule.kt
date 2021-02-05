@@ -1,4 +1,4 @@
-package com.example.feature_pokemonlist.di.imageloader
+package com.example.core_test.di.imageloader
 
 import com.example.core.di.imageloader.ImageLoader
 import com.example.core.di.imageloader.ImageLoaderModule

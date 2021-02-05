@@ -2,7 +2,7 @@ package com.example.feature_pokemonlist.ui.main
 
 import com.example.core.di.analytics.Analytics
 import com.example.core.di.analytics.AnalyticsModule
-import com.example.feature_pokemonlist.di.imageloader.FakeImageLoader
+import com.example.core_test.di.imageloader.FakeImageLoader
 import com.example.feature_pokemonlist.domain.PokeRepository
 import com.example.feature_pokemonlist.domain.PokeRepositoryModule
 import com.example.feature_pokemonlist.domain.detailedpokemon.DetailedPokemonBuilder

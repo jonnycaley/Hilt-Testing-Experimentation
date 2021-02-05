@@ -91,4 +91,5 @@ dependencies {
     androidTestImplementation deps.androidx.espressoContrib
 
     implementation project(':core')
+    androidTestImplementation project(':core-test')
 }
