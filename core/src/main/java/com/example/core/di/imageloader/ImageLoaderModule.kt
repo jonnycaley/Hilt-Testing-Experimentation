@@ -1,4 +1,4 @@
-package com.example.feature_pokemonlist.di.imageloader
+package com.example.core.di.imageloader
 
 import dagger.Binds
 import dagger.Module

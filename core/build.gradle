@@ -49,6 +49,7 @@ dependencies {
     kapt deps.hilt.androidCompiler
     kaptAndroidTest deps.hilt.androidCompiler
     androidTestImplementation deps.hilt.androidTesting
+    androidTestAnnotationProcessor deps.hilt.androidCompiler
 
     api deps.okhttp
 
@@ -57,4 +58,7 @@ dependencies {
     implementation deps.retrofit.adapter
 
     implementation deps.rxjava.rxandroid
+
+    implementation deps.glide.glide
+    kapt deps.glide.compiler
 }

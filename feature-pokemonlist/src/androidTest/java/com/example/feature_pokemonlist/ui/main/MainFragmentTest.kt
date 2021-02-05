@@ -2,13 +2,11 @@ package com.example.feature_pokemonlist.ui.main
 
 import com.example.core.di.analytics.Analytics
 import com.example.core.di.analytics.AnalyticsModule
-import com.example.feature_pokemonlist.di.imageloader.ImageLoader
-import com.example.feature_pokemonlist.di.imageloader.ImageLoaderModule
+import com.example.feature_pokemonlist.di.imageloader.FakeImageLoader
 import com.example.feature_pokemonlist.domain.PokeRepository
 import com.example.feature_pokemonlist.domain.PokeRepositoryModule
 import com.example.feature_pokemonlist.domain.detailedpokemon.DetailedPokemonBuilder
 import com.example.feature_pokemonlist.di.analytics.FakeAnalytics
-import com.example.feature_pokemonlist.di.imageloader.FakeImageLoader
 import com.example.feature_pokemonlist.domain.FakePokeRepository
 import com.example.feature_pokemonlist.domain.pokemonlist.PokemonListBuilder
 import com.example.feature_pokemonlist.domain.pokemonlist.withNoNextPage
@@ -25,8 +23,9 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import javax.inject.Inject
 
-@UninstallModules(PokeRepositoryModule::class, ImageLoaderModule::class, AnalyticsModule::class)
+@UninstallModules(PokeRepositoryModule::class, AnalyticsModule::class)
 @HiltAndroidTest
 class MainFragmentTest {
 
@@ -34,7 +33,6 @@ class MainFragmentTest {
     val rule = HiltAndroidRule(this)
 
     private val fakePokeRepository: FakePokeRepository = FakePokeRepository()
-    private val fakeImageLoader: FakeImageLoader = FakeImageLoader()
     private val fakeAnalytics: FakeAnalytics = FakeAnalytics()
     private val fakeNavigator: FakePokemonListNavigator = FakePokemonListNavigator()
 
@@ -42,10 +40,10 @@ class MainFragmentTest {
     val pokeRepository: PokeRepository = fakePokeRepository
 
     @BindValue @JvmField
-    val imageLoader: ImageLoader = fakeImageLoader
-
-    @BindValue @JvmField
     val analytics: Analytics = fakeAnalytics
+
+    @Inject
+    lateinit var imageLoader: FakeImageLoader
 
     @BindValue @JvmField
     val navigator: PokemonListNavigator = fakeNavigator
@@ -113,7 +111,7 @@ class MainFragmentTest {
             fakePokeRepository.addGetDetailedPokemonResponse(name, Single.just(DetailedPokemonBuilder.build(name)))
         }
 
-        fakeImageLoader.loadSuccessfully = false
+        imageLoader.loadSuccessfully = false
 
         launchFragmentInHiltContainer<MainFragment>()
 
