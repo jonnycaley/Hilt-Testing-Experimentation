@@ -77,9 +77,6 @@ dependencies {
     implementation deps.androidx.cardview
     implementation deps.androidx.palette
 
-    implementation deps.glide.glide
-    kapt deps.glide.compiler
-
     testImplementation deps.mockito
 
     testImplementation deps.androidx.testing
