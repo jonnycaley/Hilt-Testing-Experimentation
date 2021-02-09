@@ -26,11 +26,13 @@ jobs:
         with:
           name: generated output file
           path: "output/output.log"
+          retention-days: 4
       - name: Upload test report artifacts
         uses: actions/upload-artifact@v2
         with:
           name: test reports
           path: "*/build/reports/"
+          retention-days: 4
 
   ui_tests:
     name: Run UI tests
@@ -55,9 +57,11 @@ jobs:
         with:
           name: generated output file
           path: "output/output.log"
+          retention-days: 4
 
       - name: Upload test report artifacts
         uses: actions/upload-artifact@v2
         with:
           name: test reports
           path: "*/build/reports/"
+          retention-days: 4
