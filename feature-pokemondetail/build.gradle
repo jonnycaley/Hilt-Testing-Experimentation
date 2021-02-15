@@ -75,4 +75,7 @@ dependencies {
     implementation deps.androidx.compose.runtimelivedata
     implementation deps.androidx.compose.runtimexjava
     androidTestImplementation deps.androidx.compose.uitest
+
+    implementation deps.glide.glide
+    kapt deps.glide.compiler
 }
