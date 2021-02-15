@@ -56,7 +56,6 @@ class PokemonDetailActivity : AppCompatActivity() {
         fun start(
             activity: Activity,
             pokemon: DetailedPokemon,
-            adapterPosition: Int,
             imageView: ImageView
         ) {
             val intent = Intent(activity, PokemonDetailActivity::class.java)

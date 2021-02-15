@@ -8,7 +8,6 @@ interface PokemonListNavigator {
     fun toPokemonDetail(
         activity: Activity,
         detailedPokemon: DetailedPokemon,
-        adapterPosition: Int,
         imageView: ImageView
     )
 }

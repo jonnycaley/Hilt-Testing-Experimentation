@@ -11,9 +11,8 @@ class PokemonListNavigatorImpl @Inject constructor(): PokemonListNavigator {
     override fun toPokemonDetail(
         activity: Activity,
         detailedPokemon: DetailedPokemon,
-        adapterPosition: Int,
         imageView: ImageView
     ) {
-        PokemonDetailActivity.start(activity, detailedPokemon, adapterPosition, imageView)
+        PokemonDetailActivity.start(activity, detailedPokemon, imageView)
     }
 }

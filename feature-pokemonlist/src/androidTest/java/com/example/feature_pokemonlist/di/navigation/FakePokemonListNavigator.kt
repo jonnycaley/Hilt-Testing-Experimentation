@@ -9,7 +9,6 @@ class FakePokemonListNavigator : PokemonListNavigator {
     override fun toPokemonDetail(
         activity: Activity,
         detailedPokemon: DetailedPokemon,
-        adapterPosition: Int,
         imageView: ImageView
     ) {
 

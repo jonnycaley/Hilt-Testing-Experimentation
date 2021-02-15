@@ -61,7 +61,7 @@ class PokemonAdapter @Inject constructor(
             ViewCompat.setTransitionName(binding.image, pokemon.name)
 
             binding.root.setOnClickListener {
-                pokemonListNavigator.toPokemonDetail(activity, pokemon, absoluteAdapterPosition, binding.image)
+                pokemonListNavigator.toPokemonDetail(activity, pokemon, binding.image)
             }
         }
     }
