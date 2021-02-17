@@ -92,4 +92,13 @@ dependencies {
     androidTestImplementation deps.androidx.espressoContrib
 
     implementation project(':core')
+    /**
+     * Although this doesn't allow us to use any files from
+     * core-test in this modules instrumentation tests, it is
+     * required for the affectedmoduledetector plugin to detect
+     * that this module is dependent on the core-test module,
+     * which in turn runs tests in this module if any files in
+     * core-test are changed
+     */
+    androidTestImplementation project(':core-test')
 }
