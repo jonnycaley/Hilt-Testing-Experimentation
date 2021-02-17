@@ -33,6 +33,7 @@ android {
     sourceSets {
         androidTest {
             java.srcDirs += "src/testcommon/java"
+            java.srcDir project(':core-test').file("src/androidtest/java")
         }
         test {
             java.srcDirs += "src/testcommon/java"
@@ -91,6 +92,4 @@ dependencies {
     androidTestImplementation deps.androidx.espressoContrib
 
     implementation project(':core')
-    androidTestImplementation project(':core-test')
-    testImplementation project(':core-test')
 }
