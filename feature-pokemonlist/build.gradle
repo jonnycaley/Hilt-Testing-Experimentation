@@ -32,11 +32,11 @@ android {
     }
     sourceSets {
         androidTest {
-            java.srcDirs += "src/testcommon/java"
+            java.srcDir "src/testcommon/java"
             java.srcDir project(':core-test').file("src/androidtest/java")
         }
         test {
-            java.srcDirs += "src/testcommon/java"
+            java.srcDir "src/testcommon/java"
         }
     }
 }
