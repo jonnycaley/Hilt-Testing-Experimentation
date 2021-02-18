@@ -11,8 +11,9 @@ import androidx.core.view.ViewCompat
 import com.example.core.di.analytics.Analytics
 import com.example.core.di.imageloader.ImageLoader
 import com.example.core.domain.DetailedPokemon
+import com.example.core.viewBinding
+import com.example.feature_pokemondetail.databinding.ActivityPokemonDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_pokemon_detail.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -24,6 +25,8 @@ class PokemonDetailActivity : AppCompatActivity() {
     @Inject
     lateinit var imageLoader: ImageLoader
 
+    private val binding by viewBinding(ActivityPokemonDetailBinding::inflate)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pokemon_detail)
@@ -33,7 +36,7 @@ class PokemonDetailActivity : AppCompatActivity() {
         val pokemon: DetailedPokemon? = extras!!.getParcelable(EXTRA_POKEMON)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val imageTransitionName = extras.getString(EXTRA_TRANSITION_NAME)
-            image_view.transitionName = imageTransitionName
+            binding.imageView.transitionName = imageTransitionName
         }
 
         pokemon?.imageUrl?.let {
@@ -41,7 +44,7 @@ class PokemonDetailActivity : AppCompatActivity() {
                 this,
                 it,
                 R.drawable.placeholder,
-                image_view,
+                binding.imageView,
                 { supportStartPostponedEnterTransition() },
                 { supportStartPostponedEnterTransition() }
             )
