@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.material.Text
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.ViewCompat
 import com.example.core.di.analytics.Analytics
@@ -48,6 +49,10 @@ class PokemonDetailActivity : AppCompatActivity() {
                 { supportStartPostponedEnterTransition() },
                 { supportStartPostponedEnterTransition() }
             )
+        }
+
+        binding.composeView.setContent {
+            Text(pokemon?.name ?: "")
         }
     }
 
