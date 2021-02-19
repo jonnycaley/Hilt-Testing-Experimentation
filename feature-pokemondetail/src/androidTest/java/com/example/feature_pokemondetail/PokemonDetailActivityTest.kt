@@ -34,7 +34,7 @@ class PokemonDetailActivityTest {
     }
 
     @Test
-    fun useAppContext() {
+    fun whenActivityCreated_thenScreenViewRecorded() {
 
         val activityScenario = launchActivity()
 
@@ -44,7 +44,8 @@ class PokemonDetailActivityTest {
     private fun launchActivity(): Any {
         val intent = Intent(ApplicationProvider.getApplicationContext(), PokemonDetailActivity::class.java)
         intent.putExtra(PokemonDetailActivity.EXTRA_POKEMON, DetailedPokemon("pikachu", "pikachu.com"))
-        intent.putExtra(PokemonDetailActivity.EXTRA_TRANSITION_NAME, DetailedPokemon("pikachu", "pikachu.com"))
+        intent.putExtra(PokemonDetailActivity.EXTRA_IMAGE_TRANSITION_NAME, "pikachu-image")
+        intent.putExtra(PokemonDetailActivity.EXTRA_TEXT_TRANSITION_NAME, "pikachu-text")
         return ActivityScenario.launch<PokemonDetailActivity>(intent)
     }
 }
