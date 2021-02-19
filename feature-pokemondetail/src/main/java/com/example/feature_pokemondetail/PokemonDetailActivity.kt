@@ -60,6 +60,17 @@ class PokemonDetailActivity : AppCompatActivity() {
         Text(pokemon.name)
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        /**
+         * There is some bug that causes jetpack compose items
+         * to blink when the transition back to the previous
+         * screen has finished. This is a quick fix. I opened up
+         * an issue here: https://issuetracker.google.com/issues/180643344
+         */
+        binding.composeView.isVisible = false
+    }
+
     companion object {
 
         const val EXTRA_POKEMON = "EXTRA_POKEMON"
