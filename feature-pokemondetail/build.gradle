@@ -63,7 +63,7 @@ dependencies {
     androidTestImplementation deps.hilt.androidTesting
 
     implementation deps.androidx.hilt.lifecycle
-    kapt deps.androidx.hilt.compiler // for @ViewModelInject
+    kapt deps.androidx.hilt.compiler // for @HiltViewModel
 
     implementation deps.androidx.compose.ui
     implementation deps.androidx.compose.tooling

@@ -62,7 +62,7 @@ dependencies {
     androidTestImplementation deps.hilt.androidTesting
 
     implementation deps.androidx.hilt.lifecycle
-    kapt deps.androidx.hilt.compiler // for @ViewModelInject
+    kapt deps.androidx.hilt.compiler // for @HiltViewModel
 
     implementation deps.rxjava.rxandroid
     // Because RxAndroid releases are few and far between, it is recommended you also

@@ -1,6 +1,5 @@
 package com.example.feature_pokemonlist.ui
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,10 +8,13 @@ import com.example.core.getOffsetFromUrl
 import com.example.core.di.schedulers.AppSchedulers
 import com.example.feature_pokemonlist.domain.PokeRepository
 import com.example.core.utils.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo
+import javax.inject.Inject
 
-class MainViewModel @ViewModelInject constructor(
+@HiltViewModel
+class MainViewModel @Inject constructor(
     private val pokeRepository: PokeRepository,
     private val schedulers: AppSchedulers
 ) : ViewModel() {
