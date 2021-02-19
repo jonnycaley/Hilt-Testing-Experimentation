@@ -7,8 +7,10 @@ import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.isVisible
 import com.example.core.di.analytics.Analytics
 import com.example.core.di.imageloader.ImageLoader
 import com.example.core.domain.DetailedPokemon
@@ -30,30 +32,32 @@ class PokemonDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pokemon_detail)
+        setContentView(binding.root)
         supportPostponeEnterTransition()
         analytics.logScreenView("PokemonDetailActivity")
         val extras = intent.extras
-        val pokemon: DetailedPokemon? = extras!!.getParcelable(EXTRA_POKEMON)
+        val pokemon: DetailedPokemon = extras?.getParcelable(EXTRA_POKEMON) ?: DetailedPokemon()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val imageTransitionName = extras.getString(EXTRA_TRANSITION_NAME)
+            val imageTransitionName = extras?.getString(EXTRA_TRANSITION_NAME)
             binding.imageView.transitionName = imageTransitionName
         }
 
-        pokemon?.imageUrl?.let {
-            imageLoader.loadImage(
-                this,
-                it,
-                R.drawable.placeholder,
-                binding.imageView,
-                { supportStartPostponedEnterTransition() },
-                { supportStartPostponedEnterTransition() }
-            )
-        }
-
+        imageLoader.loadImage(
+            this,
+            pokemon.imageUrl,
+            R.drawable.placeholder,
+            binding.imageView,
+            { supportStartPostponedEnterTransition() },
+            { supportStartPostponedEnterTransition() }
+        )
         binding.composeView.setContent {
-            Text(pokemon?.name ?: "")
+            pokemon(pokemon = pokemon)
         }
+    }
+
+    @Composable
+    fun pokemon(pokemon: DetailedPokemon) {
+        Text(pokemon.name)
     }
 
     companion object {
