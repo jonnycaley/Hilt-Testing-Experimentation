@@ -41,7 +41,6 @@ dependencies {
     implementation deps.hilt.android
     kapt deps.hilt.androidCompiler
     kaptAndroidTest deps.hilt.androidCompiler
-    implementation deps.hilt.androidTesting // this breaks UI tests. This isnt an issue though as this module is only used to hold reusable UI test classes
     androidTestImplementation deps.hilt.androidTesting
     androidTestAnnotationProcessor deps.hilt.androidCompiler
 
