@@ -61,7 +61,7 @@ dependencies {
     debugImplementation deps.chucker.library
     releaseImplementation deps.chucker.library
 
-//  TODO: because we use @InstallIn(ApplicationComponent::java) these need to be accessible by the app component for the generated classes, using a separate component for the module should address this issue
+//  TODO: because we use @InstallIn(SingletonComponent::java) these need to be accessible by the app component for the generated classes, using a separate component for the module should address this issue
     implementation deps.androidx.hilt.lifecycle
     implementation deps.okhttp
     implementation deps.androidx.recyclerview

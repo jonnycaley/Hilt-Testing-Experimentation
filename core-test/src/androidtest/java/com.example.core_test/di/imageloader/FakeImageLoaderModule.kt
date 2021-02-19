@@ -4,12 +4,12 @@ import com.example.core.di.imageloader.ImageLoader
 import com.example.core.di.imageloader.ImageLoaderModule
 import dagger.Binds
 import dagger.Module
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import dagger.hilt.testing.TestInstallIn
 
 @Module
 @TestInstallIn(
-    components = [ApplicationComponent::class],
+    components = [SingletonComponent::class],
     replaces = [ImageLoaderModule::class]
 )
 internal abstract class FakeImageLoaderModule {
