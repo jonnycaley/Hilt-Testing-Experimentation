@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.Text
@@ -68,7 +70,9 @@ class PokemonDetailActivity : AppCompatActivity() {
          * screen has finished. This is a quick fix. I opened up
          * an issue here: https://issuetracker.google.com/issues/180643344
          */
-        binding.composeView.isVisible = false
+        Handler(Looper.getMainLooper()).postDelayed({
+            binding.composeView.isVisible = false
+        }, 200)
     }
 
     companion object {
