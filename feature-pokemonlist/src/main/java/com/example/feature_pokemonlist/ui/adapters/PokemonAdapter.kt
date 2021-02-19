@@ -47,21 +47,19 @@ class PokemonAdapter @Inject constructor(
 
     inner class ViewHolder(private val binding: ItemPokemonBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(pokemon: DetailedPokemon) {
-            binding.name.text = pokemon.name
-            pokemon.imageUrl?.let { imageUrl ->
+            with(pokemon) {
+                binding.name.text = name
                 imageLoader.loadImage(
                     context = binding.root.context,
                     loadable = imageUrl,
                     placeholder = R.drawable.placeholder,
                     imageView = binding.image,
-                    onResourceReady = { pokemon.name?.let { analytics.logImageView(it) } }
+                    onResourceReady = { analytics.logImageView(name) }
                 )
-            }
-
-            ViewCompat.setTransitionName(binding.image, pokemon.name)
-
-            binding.root.setOnClickListener {
-                pokemonListNavigator.toPokemonDetail(activity, pokemon, binding.image)
+                ViewCompat.setTransitionName(binding.image, name)
+                binding.root.setOnClickListener {
+                    pokemonListNavigator.toPokemonDetail(activity, this, binding.image)
+                }
             }
         }
     }
