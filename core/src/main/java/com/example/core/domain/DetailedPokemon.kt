@@ -5,6 +5,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class DetailedPokemon(
-    val name: String?,
-    val imageUrl: String?
+    val name: String = "",
+    val imageUrl: String = ""
 ) : Parcelable
