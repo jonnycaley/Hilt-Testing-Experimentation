@@ -39,6 +39,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
         setupRecycler()
+        binding.error.setOnClickListener { viewModel.loadPokemon() }
 
         analytics.logScreenView("Main fragment")
 
@@ -51,20 +52,11 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
         viewModel.pokemon.observe(viewLifecycleOwner) { response ->
             binding.recyclerMain visibleIf response.isSuccess()
-            binding.text visibleIf !response.isSuccess()
-            binding.text.setOnClickListener {}
+            binding.progress visibleIf response.isLoading()
+            binding.error visibleIf response.isError()
 
-            when (response.status) {
-                Status.SUCCESS -> {
-                    pokemonAdapter.updateItems(response.data ?: emptyList(), requireActivity())
-                }
-                Status.ERROR -> {
-                    binding.text.text = "An error occurred, try again later"
-                    binding.text.setOnClickListener { viewModel.loadPokemon() }
-                }
-                Status.LOADING -> {
-                    binding.text.text = "Loading..."
-                }
+            if (response.isSuccess()) {
+                pokemonAdapter.updateItems(response.data ?: emptyList(), requireActivity())
             }
         }
     }
