@@ -9,7 +9,7 @@ class DetailedPokemonDtoMapper @Inject constructor(
 ) {
     fun map(dto: DetailedPokemonDto, url: String): DetailedPokemon {
         return DetailedPokemon(
-            name = dto.name ?: "",
+            name = dto.name?.capitalize() ?: "",
             imageUrl = imageUrlMapper.map(url)
         )
     }
