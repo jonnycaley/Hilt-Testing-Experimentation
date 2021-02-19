@@ -56,9 +56,10 @@ class PokemonAdapter @Inject constructor(
                     imageView = binding.image,
                     onResourceReady = { analytics.logImageView(name) }
                 )
-                ViewCompat.setTransitionName(binding.image, name)
                 binding.root.setOnClickListener {
-                    pokemonListNavigator.toPokemonDetail(activity, this, binding.image)
+                    ViewCompat.setTransitionName(binding.image, "$name-image")
+                    ViewCompat.setTransitionName(binding.name, "$name-text")
+                    pokemonListNavigator.toPokemonDetail(activity, this, binding.image, binding.name)
                 }
             }
         }

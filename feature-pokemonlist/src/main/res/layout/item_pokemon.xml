@@ -28,7 +28,8 @@
             app:layout_constraintTop_toBottomOf="@id/image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:text="Pikachu" />
+            tools:text="Pikachu"
+            style="@style/PrimaryText"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
