@@ -25,9 +25,12 @@ class PokemonAdapter @Inject constructor(
 
     fun updateItems(list: List<DetailedPokemon>, activity: Activity) {
         this.activity = activity
+        val oldPokemonListSize = pokemon.size
+        val newPokemonListSize = list.size
+        val numberOfNewItems = newPokemonListSize - oldPokemonListSize
         pokemon.clear()
         pokemon.addAll(list)
-        notifyDataSetChanged()
+        notifyItemRangeInserted(oldPokemonListSize, numberOfNewItems)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
