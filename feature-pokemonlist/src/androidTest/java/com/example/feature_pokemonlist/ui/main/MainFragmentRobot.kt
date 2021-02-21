@@ -12,7 +12,7 @@ import org.hamcrest.CoreMatchers.not
 class MainFragmentRobot {
 
     fun checkErrorDisplayed(): MainFragmentRobot {
-        onView(withText("An error occurred, try again later"))
+        onView(withId(R.id.error))
             .check(matches(isDisplayed()))
         return this
     }
