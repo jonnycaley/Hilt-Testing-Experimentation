@@ -13,10 +13,8 @@ import com.example.core.visibleIf
 import com.example.feature_pokemonlist.R
 import com.example.feature_pokemonlist.databinding.MainFragmentBinding
 import com.example.core.di.analytics.Analytics
-import com.example.core.ui.AnalyticsFragment
 import com.example.feature_pokemonlist.ui.adapters.LoadingAdapter
 import com.example.feature_pokemonlist.ui.adapters.PokemonAdapter
-import com.example.core.utils.Status
 import com.example.feature_pokemonlist.navigation.PokemonListNavigator
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
