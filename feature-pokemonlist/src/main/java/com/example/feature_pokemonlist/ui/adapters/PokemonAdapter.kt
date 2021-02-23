@@ -1,6 +1,5 @@
 package com.example.feature_pokemonlist.ui.adapters
 
-import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -11,23 +10,19 @@ import com.example.feature_pokemonlist.R
 import com.example.feature_pokemonlist.databinding.ItemPokemonBinding
 import com.example.core.di.analytics.Analytics
 import com.example.core.di.imageloader.ImageLoader
-import com.example.feature_pokemonlist.navigation.PokemonListNavigator
-import dagger.hilt.android.scopes.FragmentScoped
-import javax.inject.Inject
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 
-@FragmentScoped
-class PokemonAdapter @Inject constructor(
+class PokemonAdapter @AssistedInject constructor(
     private val analytics: Analytics,
     private val imageLoader: ImageLoader,
-    private val pokemonListNavigator: PokemonListNavigator
+    @Assisted private val onItemClick: (DetailedPokemon, ImageView, TextView) -> Unit
 ) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
     private var pokemonList: MutableList<DetailedPokemon> = mutableListOf()
 
-    lateinit var activity: Activity
-
-    fun updateItems(pokemon: List<DetailedPokemon>, activity: Activity) {
-        this.activity = activity
+    fun updateItems(pokemon: List<DetailedPokemon>) {
         val oldPokemonListSize = pokemonList.size
         val newPokemon = pokemon.subList(oldPokemonListSize, pokemon.size)
         pokemonList.addAll(newPokemon)
@@ -41,10 +36,6 @@ class PokemonAdapter @Inject constructor(
         return ViewHolder(itemBinding, onItemClick)
     }
 
-    private val onItemClick = { position: Int, imageView: ImageView, textView: TextView ->
-        pokemonListNavigator.toPokemonDetail(activity, pokemonList[position], imageView, textView)
-    }
-
     override fun getItemCount(): Int {
         return pokemonList.size
     }
@@ -53,10 +44,13 @@ class PokemonAdapter @Inject constructor(
         holder.bind(pokemonList[position])
     }
 
-    inner class ViewHolder(private val binding: ItemPokemonBinding, onItemClick: (Int, ImageView, TextView) -> Unit): RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(
+        private val binding: ItemPokemonBinding,
+        onItemClick: (DetailedPokemon, ImageView, TextView) -> Unit
+    ): RecyclerView.ViewHolder(binding.root) {
         init {
             binding.root.setOnClickListener {
-                onItemClick(bindingAdapterPosition, binding.image, binding.name)
+                onItemClick(pokemonList[bindingAdapterPosition], binding.image, binding.name)
             }
         }
         fun bind(pokemon: DetailedPokemon) {
@@ -71,5 +65,10 @@ class PokemonAdapter @Inject constructor(
                 )
             }
         }
+    }
+
+    @AssistedFactory
+    interface Factory {
+        fun create(onItemClick: (DetailedPokemon, ImageView, TextView) -> Unit): PokemonAdapter
     }
 }
