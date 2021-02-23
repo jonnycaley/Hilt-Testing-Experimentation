@@ -13,9 +13,11 @@ import com.example.core.visibleIf
 import com.example.feature_pokemonlist.R
 import com.example.feature_pokemonlist.databinding.MainFragmentBinding
 import com.example.core.di.analytics.Analytics
+import com.example.core.ui.AnalyticsFragment
 import com.example.feature_pokemonlist.ui.adapters.LoadingAdapter
 import com.example.feature_pokemonlist.ui.adapters.PokemonAdapter
 import com.example.core.utils.Status
+import com.example.feature_pokemonlist.navigation.PokemonListNavigator
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -30,7 +32,15 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     private lateinit var concatAdapter: ConcatAdapter
 
     @Inject
-    lateinit var pokemonAdapter: PokemonAdapter
+    lateinit var pokemonListNavigator: PokemonListNavigator
+
+    @Inject
+    lateinit var pokemonAdapterFactory: PokemonAdapter.Factory
+    private val pokemonAdapter: PokemonAdapter by lazy {
+        pokemonAdapterFactory.create { pokemon, imageView, textView ->
+            pokemonListNavigator.toPokemonDetail(requireActivity(), pokemon, imageView, textView)
+        }
+    }
 
     @Inject
     lateinit var analytics: Analytics
@@ -56,7 +66,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
             binding.error visibleIf response.isError()
 
             if (response.isSuccess()) {
-                pokemonAdapter.updateItems(response.data ?: emptyList(), requireActivity())
+                pokemonAdapter.updateItems(response.data ?: emptyList())
             }
         }
     }
