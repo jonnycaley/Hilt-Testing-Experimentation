@@ -97,18 +97,24 @@ class PokemonDetailActivity : AppCompatActivity() {
             imageView: ImageView,
             textView: TextView
         ) {
+            val imageTransitionName = "${pokemon.name}-image"
+            val textTransitionName = "${pokemon.name}-text"
+            ViewCompat.setTransitionName(textView, textTransitionName)
+            ViewCompat.setTransitionName(imageView, imageTransitionName)
+
+
             val intent = Intent(activity, PokemonDetailActivity::class.java)
             intent.putExtra(EXTRA_POKEMON, pokemon)
-            intent.putExtra(EXTRA_IMAGE_TRANSITION_NAME, ViewCompat.getTransitionName(imageView))
-            intent.putExtra(EXTRA_TEXT_TRANSITION_NAME, ViewCompat.getTransitionName(textView))
+            intent.putExtra(EXTRA_IMAGE_TRANSITION_NAME, imageTransitionName)
+            intent.putExtra(EXTRA_TEXT_TRANSITION_NAME, textTransitionName)
             /**
              * We create the animation between the two activities using the first activity image
              * and the shared transion name between the image views
              */
             val options: ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(
                 activity,
-                Pair(imageView, ViewCompat.getTransitionName(imageView) ?: ""),
-                Pair(textView, ViewCompat.getTransitionName(textView) ?: "")
+                Pair(imageView, imageTransitionName),
+                Pair(textView, textTransitionName)
             )
             activity.startActivity(intent, options.toBundle())
         }
