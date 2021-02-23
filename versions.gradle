@@ -4,6 +4,7 @@ ext.build_versions = [
         minSdkVersion : 21,
         targetSdkVersion : 30,
 ]
+
 ext.versions = [
         kotlin : "1.4.21",
         hilt : '2.31.2-alpha',
@@ -31,7 +32,8 @@ ext.versions = [
         androidxTesting : '2.1.0',
         firebase : '18.0.0',
         espresso : '3.3.0',
-        okhttp : '4.9.0'
+        okhttp : '4.9.0',
+        stetho : '1.5.1'
 ]
 
 ext.deps = [
@@ -121,5 +123,9 @@ ext.deps = [
                 compiler : "com.github.bumptech.glide:compiler:$versions.glide"
         ],
         mockito : "org.mockito:mockito-core:$versions.mockito",
-        firebase : "com.google.firebase:firebase-analytics:$versions.firebase"
+        firebase : "com.google.firebase:firebase-analytics:$versions.firebase",
+        stetho : [
+                stetho: "com.facebook.stetho:stetho:$versions.stetho",
+                okhttp : "com.facebook.stetho:stetho-okhttp3:$versions.stetho"
+        ]
 ]

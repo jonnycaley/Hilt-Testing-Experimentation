@@ -61,4 +61,6 @@ dependencies {
 
     implementation deps.glide.glide
     kapt deps.glide.compiler
+
+    implementation deps.stetho.okhttp
 }

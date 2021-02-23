@@ -25,6 +25,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+
+        }
     }
 
     compileOptions {
@@ -68,4 +71,5 @@ dependencies {
 
     implementation project(':core')
     implementation project(":core-navigation")
+    implementation deps.stetho.stetho
 }

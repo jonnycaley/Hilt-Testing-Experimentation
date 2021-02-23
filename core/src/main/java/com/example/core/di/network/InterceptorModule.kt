@@ -2,6 +2,7 @@ package com.example.core.di.network
 
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerInterceptor
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,4 +36,8 @@ object InterceptorModule {
     @IntoSet
     fun provideChuckerInterceptor(@ApplicationContext context: Context): Interceptor  =
         ChuckerInterceptor(context)
+
+    @Provides
+    @IntoSet
+    fun provideStethoInterceptor(): Interceptor = StethoInterceptor()
 }
