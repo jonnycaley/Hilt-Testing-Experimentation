@@ -1,4 +1,4 @@
-package com.example.core_test.di.imageloader
+package com.example.core_test
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Test
