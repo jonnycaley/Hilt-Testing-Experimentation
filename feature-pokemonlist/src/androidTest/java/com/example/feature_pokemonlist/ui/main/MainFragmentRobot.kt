@@ -7,6 +7,7 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.example.feature_pokemonlist.R
+import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.CoreMatchers.not
 
 class MainFragmentRobot {
@@ -27,7 +28,9 @@ class MainFragmentRobot {
 
     fun checkPokemonDisplayed(name: String): MainFragmentRobot {
         onView(withId(R.id.recycler_main))
-            .check(matches(hasDescendant(withText(name))))
+            .check(matches(hasDescendant(allOf(
+                withId(R.id.name),
+            withText(name)))))
         return this
     }
 
