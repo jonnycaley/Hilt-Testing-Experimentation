@@ -27,9 +27,6 @@ import javax.inject.Inject
 class PokemonDetailActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var analytics: Analytics
-
-    @Inject
     lateinit var imageLoader: ImageLoader
 
     private val binding by viewBinding(ActivityPokemonDetailBinding::inflate)
@@ -43,7 +40,6 @@ class PokemonDetailActivity : AppCompatActivity() {
          * when the image has been loaded or has failed to load
          */
         supportPostponeEnterTransition()
-        analytics.logScreenView("PokemonDetailActivity")
         val extras = intent.extras
         val pokemon: DetailedPokemon = extras?.getParcelable(EXTRA_POKEMON) ?: DetailedPokemon()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -69,7 +65,9 @@ class PokemonDetailActivity : AppCompatActivity() {
 
     @Composable
     fun pokemon(pokemon: DetailedPokemon) {
-//        Text(pokemon.name)
+        pokemon.stats.forEach {
+            Text("${it.name} ${it.baseStat}")
+        }
     }
 
     override fun onBackPressed() {
@@ -101,7 +99,6 @@ class PokemonDetailActivity : AppCompatActivity() {
             val textTransitionName = "${pokemon.name}-text"
             ViewCompat.setTransitionName(textView, textTransitionName)
             ViewCompat.setTransitionName(imageView, imageTransitionName)
-
 
             val intent = Intent(activity, PokemonDetailActivity::class.java)
             intent.putExtra(EXTRA_POKEMON, pokemon)
