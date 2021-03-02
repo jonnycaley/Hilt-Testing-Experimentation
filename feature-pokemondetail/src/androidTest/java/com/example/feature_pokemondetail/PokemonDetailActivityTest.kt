@@ -34,11 +34,11 @@ class PokemonDetailActivityTest {
     }
 
     @Test
-    fun whenActivityCreated_thenScreenViewRecorded() {
+    fun whenActivityCreated_thenScreenViewNotRecorded() {
 
         val activityScenario = launchActivity()
 
-        assertEquals(fakeAnalytics.screenViews.size, 1)
+        assertEquals(fakeAnalytics.screenViews.size, 0)
     }
 
     private fun launchActivity(): Any {

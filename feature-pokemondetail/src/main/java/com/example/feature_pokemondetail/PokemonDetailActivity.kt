@@ -15,7 +15,6 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
-import com.example.core.di.analytics.Analytics
 import com.example.core.di.imageloader.ImageLoader
 import com.example.core.domain.DetailedPokemon
 import com.example.core.viewBinding
