@@ -9,8 +9,12 @@ import android.os.Looper
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.core.view.ViewCompat
@@ -64,8 +68,17 @@ class PokemonDetailActivity : AppCompatActivity() {
 
     @Composable
     fun pokemon(pokemon: DetailedPokemon) {
-        pokemon.stats.forEach {
-            Text("${it.name} ${it.baseStat}")
+        Column {
+            LazyColumn {
+                items(items = pokemon.stats) {
+                    Row(
+                        modifier = Modifier.apply {
+                        }
+                    ) {
+                        Text("${it.name} ${it.baseStat}")
+                    }
+                }
+            }
         }
     }
 
