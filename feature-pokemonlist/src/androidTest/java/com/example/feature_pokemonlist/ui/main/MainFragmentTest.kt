@@ -13,7 +13,7 @@ import com.example.feature_pokemonlist.domain.pokemonlist.withNoNextPage
 import com.example.feature_pokemonlist.di.navigation.FakePokemonListNavigator
 import com.example.feature_pokemonlist.launchFragmentInHiltContainer
 import com.example.feature_pokemonlist.navigation.PokemonListNavigator
-import com.example.feature_pokemonlist.ui.MainFragment
+import com.example.feature_pokemonlist.ui.PokemonListFragment
 import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -57,7 +57,7 @@ class MainFragmentTest {
     fun givenDataLoading_whenStartFragment_thenLoadingShown() {
         fakePokeRepository.addGetPokemonListResponse(Single.never())
 
-        launchFragmentInHiltContainer<MainFragment>()
+        launchFragmentInHiltContainer<PokemonListFragment>()
 
         MainFragmentRobot()
             .checkLoadingDisplayed()
@@ -67,7 +67,7 @@ class MainFragmentTest {
     fun givenError_whenStartFragment_thenErrorTextShownAndAnalyticsNotRecorded() {
         fakePokeRepository.addGetPokemonListResponse(Single.error(Exception("An exception occurred")))
 
-        launchFragmentInHiltContainer<MainFragment>()
+        launchFragmentInHiltContainer<PokemonListFragment>()
 
         MainFragmentRobot()
             .checkErrorDisplayed()
@@ -86,7 +86,7 @@ class MainFragmentTest {
                 DetailedPokemonBuilder.build(name)))
         }
 
-        launchFragmentInHiltContainer<MainFragment>()
+        launchFragmentInHiltContainer<PokemonListFragment>()
 
         MainFragmentRobot()
             .checkLoadingHidden()
@@ -113,7 +113,7 @@ class MainFragmentTest {
 
         imageLoader.loadSuccessfully = false
 
-        launchFragmentInHiltContainer<MainFragment>()
+        launchFragmentInHiltContainer<PokemonListFragment>()
 
         MainFragmentRobot()
             .checkPokemonDisplayed(pokemon[0])

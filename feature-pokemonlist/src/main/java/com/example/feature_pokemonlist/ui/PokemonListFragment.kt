@@ -20,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainFragment : Fragment(R.layout.main_fragment) {
+class PokemonListFragment : Fragment(R.layout.main_fragment) {
 
     private val viewModel: MainViewModel by viewModels()
 
@@ -94,6 +94,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     }
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() = PokemonListFragment()
     }
 }
