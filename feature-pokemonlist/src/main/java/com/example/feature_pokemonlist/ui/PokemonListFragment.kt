@@ -22,7 +22,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class PokemonListFragment : Fragment(R.layout.main_fragment) {
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: PokemonListViewModel by viewModels()
 
     private val binding by viewBinding(MainFragmentBinding::bind)
 

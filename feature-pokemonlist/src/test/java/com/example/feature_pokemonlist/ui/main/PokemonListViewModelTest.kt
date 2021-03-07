@@ -13,7 +13,7 @@ import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
 import java.lang.Exception
 
-class MainViewModelTest {
+class PokemonListViewModelTest {
 
     private val mockPokeRepository: PokeRepository = mock(PokeRepository::class.java)
 
@@ -65,8 +65,8 @@ class MainViewModelTest {
         }
     }
 
-    private fun testViewModel(): com.example.feature_pokemonlist.ui.MainViewModel {
-        return com.example.feature_pokemonlist.ui.MainViewModel(
+    private fun testViewModel(): com.example.feature_pokemonlist.ui.PokemonListViewModel {
+        return com.example.feature_pokemonlist.ui.PokemonListViewModel(
             pokeRepository = mockPokeRepository,
             schedulers = TestSchedulers.get()
         )

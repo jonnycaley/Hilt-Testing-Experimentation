@@ -14,7 +14,7 @@ import io.reactivex.rxjava3.kotlin.addTo
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class PokemonListViewModel @Inject constructor(
     private val pokeRepository: PokeRepository,
     private val schedulers: AppSchedulers
 ) : ViewModel() {
