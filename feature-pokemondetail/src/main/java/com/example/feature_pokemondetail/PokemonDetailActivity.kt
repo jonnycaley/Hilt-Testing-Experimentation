@@ -62,23 +62,7 @@ class PokemonDetailActivity : AppCompatActivity() {
         )
         binding.textView.text = pokemon.name
         binding.composeView.setContent {
-            pokemon(pokemon = pokemon)
-        }
-    }
-
-    @Composable
-    fun pokemon(pokemon: DetailedPokemon) {
-        Column {
-            LazyColumn {
-                items(items = pokemon.stats) {
-                    Row(
-                        modifier = Modifier.apply {
-                        }
-                    ) {
-                        Text("${it.name} ${it.baseStat}")
-                    }
-                }
-            }
+            PokemonDetails(pokemon = pokemon)
         }
     }
 
