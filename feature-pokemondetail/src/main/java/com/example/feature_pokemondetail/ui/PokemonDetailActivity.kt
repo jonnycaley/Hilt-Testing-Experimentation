@@ -1,4 +1,4 @@
-package com.example.feature_pokemondetail
+package com.example.feature_pokemondetail.ui
 
 import android.app.Activity
 import android.content.Intent
@@ -9,12 +9,6 @@ import android.os.Looper
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.core.view.ViewCompat
@@ -22,6 +16,8 @@ import androidx.core.view.isVisible
 import com.example.core.di.imageloader.ImageLoader
 import com.example.core.domain.DetailedPokemon
 import com.example.core.viewBinding
+import com.example.feature_pokemondetail.PokemonDetails
+import com.example.feature_pokemondetail.R
 import com.example.feature_pokemondetail.databinding.ActivityPokemonDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

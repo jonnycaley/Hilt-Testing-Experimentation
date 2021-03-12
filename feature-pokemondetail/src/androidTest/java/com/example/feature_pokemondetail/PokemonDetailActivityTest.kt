@@ -7,6 +7,7 @@ import com.example.core.di.analytics.Analytics
 import com.example.core.di.analytics.AnalyticsModule
 import com.example.core.domain.DetailedPokemon
 import com.example.feature_pokemondetail.di.analytics.FakeAnalytics
+import com.example.feature_pokemondetail.ui.PokemonDetailActivity
 import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest

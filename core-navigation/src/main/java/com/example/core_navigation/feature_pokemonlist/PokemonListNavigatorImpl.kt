@@ -4,7 +4,7 @@ import android.app.Activity
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.core.domain.DetailedPokemon
-import com.example.feature_pokemondetail.PokemonDetailActivity
+import com.example.feature_pokemondetail.ui.PokemonDetailActivity
 import com.example.feature_pokemonlist.navigation.PokemonListNavigator
 import javax.inject.Inject
 
