@@ -16,7 +16,6 @@ import androidx.core.view.isVisible
 import com.example.core.di.imageloader.ImageLoader
 import com.example.core.domain.DetailedPokemon
 import com.example.core.viewBinding
-import com.example.feature_pokemondetail.PokemonDetails
 import com.example.feature_pokemondetail.R
 import com.example.feature_pokemondetail.databinding.ActivityPokemonDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
