@@ -1,10 +1,13 @@
 package com.example.feature_pokemondetail.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -29,9 +32,9 @@ fun PokemonDetails(pokemon: DetailedPokemon) {
 
 @Composable
 fun PokemonStatRow(statPair: Pair<Stat, Stat>) {
-    Row(modifier = Modifier
-        .fillMaxWidth()
-        .wrapContentHeight()) {
+    Row(
+        modifier = Modifier.padding(vertical = 2.dp)
+    ) {
         val modifierWithWeight = Modifier.weight(0.5F)
         PokemonStat(modifierWithWeight, statPair.first)
         PokemonStat(modifierWithWeight, statPair.second)
@@ -40,15 +43,21 @@ fun PokemonStatRow(statPair: Pair<Stat, Stat>) {
 
 @Composable
 fun PokemonStat(modifier: Modifier, stat: Stat) {
-    Box(
-        modifier = modifier
-            .wrapContentHeight()
-            .clip(RoundedCornerShape(10.dp))
-            .background(Color.Red)
-    ) {
-        Text("${stat.name}: ${stat.baseStat}",
-            modifier = Modifier.align(Alignment.Center),
-            color = Color.White
-        )
+    Box(modifier = modifier) {
+        Box(
+            modifier = Modifier
+                .wrapContentWidth()
+                .wrapContentHeight()
+                .align(Alignment.Center)
+                .clip(RoundedCornerShape(15.dp))
+                .background(Color.Red)
+        ) {
+            Text("${stat.name}: ${stat.baseStat}",
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .padding(10.dp),
+                color = Color.White
+            )
+        }
     }
 }
