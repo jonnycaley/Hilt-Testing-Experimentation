@@ -9,6 +9,8 @@ import android.os.Looper
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.core.view.ViewCompat
@@ -57,7 +59,11 @@ class PokemonDetailActivity : AppCompatActivity() {
         )
         binding.textView.text = pokemon.name
         binding.composeView.setContent {
-            PokemonDetails(pokemon = pokemon)
+            Theme {
+                Surface(color = MaterialTheme.colors.surface) {
+                    PokemonDetails(pokemon = pokemon)
+                }
+            }
         }
     }
 
