@@ -7,6 +7,11 @@ plugins {
     id 'com.google.gms.google-services'
 }
 
+kapt {
+    mapDiagnosticLocations = true
+    correctErrorTypes = true
+}
+
 android {
     compileSdkVersion build_versions.compileSdkVersion
     buildToolsVersion build_versions.buildToolsVersion
