@@ -45,7 +45,7 @@ fun PokemonStatRow(stats: List<Stat>) {
 fun PokemonStat(modifier: Modifier, stat: Stat) {
     Box(modifier = modifier) {
         Surface(
-//            color = MaterialTheme.colors.primary, // TODO: elevation does not appear if color is present, logged a bug for it here https://issuetracker.google.com/issues/183210086
+            color = MaterialTheme.colors.primary,
             modifier = Modifier
                 .wrapContentHeight()
                 .align(Alignment.Center),
