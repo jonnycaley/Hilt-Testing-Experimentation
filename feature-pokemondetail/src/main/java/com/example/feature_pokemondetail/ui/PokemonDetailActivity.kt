@@ -2,10 +2,8 @@ package com.example.feature_pokemondetail.ui
 
 import android.app.Activity
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -42,12 +40,10 @@ class PokemonDetailActivity : AppCompatActivity() {
         supportPostponeEnterTransition()
         val extras = intent.extras
         val pokemon: DetailedPokemon = extras?.getParcelable(EXTRA_POKEMON) ?: DetailedPokemon()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val imageTransitionName = extras?.getString(EXTRA_IMAGE_TRANSITION_NAME)
-            val textTransitionName = extras?.getString(EXTRA_TEXT_TRANSITION_NAME)
-            binding.imageView.transitionName = imageTransitionName
-            binding.textView.transitionName = textTransitionName
-        }
+        val imageTransitionName = extras?.getString(EXTRA_IMAGE_TRANSITION_NAME)
+        val textTransitionName = extras?.getString(EXTRA_TEXT_TRANSITION_NAME)
+        binding.imageView.transitionName = imageTransitionName
+        binding.textView.transitionName = textTransitionName
 
         imageLoader.loadImage(
             this,
@@ -58,12 +54,27 @@ class PokemonDetailActivity : AppCompatActivity() {
             { supportStartPostponedEnterTransition() }
         )
         binding.textView.text = pokemon.name
+        showPokemonDetails(pokemon)
+    }
+    private fun showPokemonDetails(pokemon: DetailedPokemon) {
+        animateComposeIn()
         binding.composeView.setContent {
             Theme {
                 Surface(color = MaterialTheme.colors.surface) {
                     PokemonDetails(pokemon = pokemon)
                 }
             }
+        }
+    }
+
+    private fun animateComposeIn() {
+        with(binding.composeView) {
+            alpha = 0f
+            visibility = View.VISIBLE
+
+            animate()
+                .alpha(1F)
+                .duration = 500L
         }
     }
 
@@ -75,9 +86,13 @@ class PokemonDetailActivity : AppCompatActivity() {
          * screen has finished. This is a quick fix. I opened up
          * an issue here: https://issuetracker.google.com/issues/180643344
          */
-        Handler(Looper.getMainLooper()).postDelayed({
-            binding.composeView.isVisible = false
-        }, 200)
+        animateComposeOut()
+    }
+
+    private fun animateComposeOut() {
+        binding.composeView.animate()
+            .alpha(0F)
+            .duration = 200L
     }
 
     companion object {
