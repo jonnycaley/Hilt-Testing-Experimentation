@@ -14,7 +14,6 @@ kapt {
 
 android {
     compileSdkVersion build_versions.compileSdkVersion
-    buildToolsVersion build_versions.buildToolsVersion
 
     defaultConfig {
         minSdkVersion build_versions.minSdkVersion

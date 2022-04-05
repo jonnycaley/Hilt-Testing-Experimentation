@@ -7,7 +7,6 @@ apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion build_versions.compileSdkVersion
-    buildToolsVersion build_versions.buildToolsVersion
 
     defaultConfig {
         applicationId "com.example.hilt_testing_experimentation"
@@ -40,6 +39,8 @@ android {
         useIR = true //if you uncomment this you need to add it for all the other modules or you get an error
     }
 }
+
+googleServices { disableVersionCheck = true }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
